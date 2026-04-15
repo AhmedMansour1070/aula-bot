@@ -56,9 +56,10 @@ client = discord.Client(intents=intents)
 async def post_daily_word():
     """Wait until 08:00 Cairo time, then post; repeat every 24 h."""
     await client.wait_until_ready()
-    channel = client.get_channel(CHANNEL_ID)
-    if channel is None:
-        log.error("Channel %s not found. Check CHANNEL_ID and bot permissions.", CHANNEL_ID)
+    try:
+        channel = await client.fetch_channel(CHANNEL_ID)
+    except Exception as e:
+        log.error("Channel %s not found: %s. Check CHANNEL_ID and bot permissions.", CHANNEL_ID, e)
         return
 
     while not client.is_closed():
