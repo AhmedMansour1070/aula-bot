@@ -80,9 +80,14 @@ def build_homework_context(context=None):
     if not context or not context.get("sessions"):
         return "No homework found."
     last = context["sessions"][-1]
-    lines = [f"Session: {last['session']}"]
+    lines = [f"Session: {last['session']}", "Homework assigned:"]
     for h in last.get("homework", []):
         lines.append(f"- {h}")
+    pages = last.get("homework_pages", {})
+    if pages:
+        lines.append("\nActual textbook exercise content:")
+        for page_num, text in pages.items():
+            lines.append(f"\n--- Page {page_num} ---\n{text[:2000]}")
     return "\n".join(lines)
 
 
