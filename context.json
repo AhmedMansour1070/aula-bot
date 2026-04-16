@@ -1,0 +1,373 @@
+{
+  "sessions": [
+    {
+      "session": "CLASE.3",
+      "date": "2026-04-16",
+      "topics": [
+        "Nacionalidad VS País",
+        "Correo electrónico",
+        "Pronombres de sujeto",
+        "Verbos LLAMARSE, TENER, SER, TRABAJAR, DEBER"
+      ],
+      "vocabulary": [
+        {
+          "word": "Canadiense",
+          "translation": "Canadian",
+          "example": "Soy canadiense de Canadá",
+          "type": "nationality"
+        },
+        {
+          "word": "Brasileño",
+          "translation": "Brazilian",
+          "example": "Soy brasileño de Brasil",
+          "type": "nationality"
+        },
+        {
+          "word": "Alemán",
+          "translation": "German",
+          "example": "Soy alemán de Alemania",
+          "type": "nationality"
+        },
+        {
+          "word": "Marroquí",
+          "translation": "Moroccan",
+          "example": "Soy marroquí de Marruecos",
+          "type": "nationality"
+        },
+        {
+          "word": "Argentino",
+          "translation": "Argentine",
+          "example": "Soy argentino de Argentina",
+          "type": "nationality"
+        },
+        {
+          "word": "Francesa",
+          "translation": "French",
+          "example": "Soy francesa de Francia",
+          "type": "nationality"
+        },
+        {
+          "word": "Egipcio",
+          "translation": "Egyptian",
+          "example": "Soy egipcio de Egipto",
+          "type": "nationality"
+        },
+        {
+          "word": "arroba",
+          "translation": "@ symbol",
+          "example": "omar2k@gmail.com",
+          "type": "symbol"
+        },
+        {
+          "word": "punto",
+          "translation": "dot",
+          "example": "omar2k@gmail.com",
+          "type": "symbol"
+        },
+        {
+          "word": "guión",
+          "translation": "hyphen",
+          "example": "omar-hammad@gmail.com",
+          "type": "symbol"
+        },
+        {
+          "word": "guión bajo",
+          "translation": "underscore",
+          "example": "omar_hammad@hotmail.com",
+          "type": "symbol"
+        },
+        {
+          "word": "h",
+          "translation": "ه",
+          "example": "",
+          "type": "letter"
+        },
+        {
+          "word": "haber",
+          "translation": "to have",
+          "example": "",
+          "type": "verb"
+        },
+        {
+          "word": "llamarse",
+          "translation": "to be called",
+          "example": "Me llamo Omar",
+          "type": "verb"
+        },
+        {
+          "word": "tener",
+          "translation": "to have",
+          "example": "Tengo 30 años",
+          "type": "verb"
+        },
+        {
+          "word": "ser",
+          "translation": "to be",
+          "example": "Soy egipcio de Egipto",
+          "type": "verb"
+        },
+        {
+          "word": "trabajar",
+          "translation": "to work",
+          "example": "Trabajo de profesor de español",
+          "type": "verb"
+        },
+        {
+          "word": "deber",
+          "translation": "to have to",
+          "example": "",
+          "type": "verb"
+        }
+      ],
+      "grammar": [
+        {
+          "rule": "verb LLAMARSE conjugation",
+          "forms": [
+            "Me llamo",
+            "Te llamas",
+            "Se llama"
+          ]
+        },
+        {
+          "rule": "verb TENER conjugation",
+          "forms": [
+            "Tengo",
+            "Tienes",
+            "Tiene"
+          ]
+        },
+        {
+          "rule": "verb SER conjugation",
+          "forms": [
+            "Soy",
+            "Eres",
+            "Es"
+          ]
+        },
+        {
+          "rule": "verb TRABAJAR conjugation",
+          "forms": [
+            "Trabajo",
+            "Trabajas",
+            "Trabaja"
+          ]
+        },
+        {
+          "rule": "pronouns de sujeto",
+          "forms": [
+            "yo",
+            "tú",
+            "él/ella"
+          ]
+        }
+      ],
+      "homework": [
+        "Página 141: actividad 4",
+        "Página 142: actividad 5/6/7"
+      ],
+      "useful_phrases": [
+        "¿cómo te llamas?",
+        "Me llamo...",
+        "¿cómo se llama?",
+        "Se llama...",
+        "¿de dónde eres?",
+        "Soy de...",
+        "¿cuántos años tienes?",
+        "Tengo... años",
+        "¿en qué trabajas?",
+        "Trabajo de..."
+      ],
+      "next_session_prep": [
+        "Review verb conjugations",
+        "Practice nationality vocabulary"
+      ]
+    }
+  ],
+  "all_vocab": [
+    {
+      "word": "Canadiense",
+      "translation": "Canadian",
+      "example": "Soy canadiense de Canadá",
+      "type": "nationality",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "Brasileño",
+      "translation": "Brazilian",
+      "example": "Soy brasileño de Brasil",
+      "type": "nationality",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "Alemán",
+      "translation": "German",
+      "example": "Soy alemán de Alemania",
+      "type": "nationality",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "Marroquí",
+      "translation": "Moroccan",
+      "example": "Soy marroquí de Marruecos",
+      "type": "nationality",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "Argentino",
+      "translation": "Argentine",
+      "example": "Soy argentino de Argentina",
+      "type": "nationality",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "Francesa",
+      "translation": "French",
+      "example": "Soy francesa de Francia",
+      "type": "nationality",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "Egipcio",
+      "translation": "Egyptian",
+      "example": "Soy egipcio de Egipto",
+      "type": "nationality",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "arroba",
+      "translation": "@ symbol",
+      "example": "omar2k@gmail.com",
+      "type": "symbol",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "punto",
+      "translation": "dot",
+      "example": "omar2k@gmail.com",
+      "type": "symbol",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "guión",
+      "translation": "hyphen",
+      "example": "omar-hammad@gmail.com",
+      "type": "symbol",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "guión bajo",
+      "translation": "underscore",
+      "example": "omar_hammad@hotmail.com",
+      "type": "symbol",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "h",
+      "translation": "ه",
+      "example": "",
+      "type": "letter",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "haber",
+      "translation": "to have",
+      "example": "",
+      "type": "verb",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "llamarse",
+      "translation": "to be called",
+      "example": "Me llamo Omar",
+      "type": "verb",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "tener",
+      "translation": "to have",
+      "example": "Tengo 30 años",
+      "type": "verb",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "ser",
+      "translation": "to be",
+      "example": "Soy egipcio de Egipto",
+      "type": "verb",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "trabajar",
+      "translation": "to work",
+      "example": "Trabajo de profesor de español",
+      "type": "verb",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "deber",
+      "translation": "to have to",
+      "example": "",
+      "type": "verb",
+      "session": "CLASE.3"
+    }
+  ],
+  "all_grammar": [
+    {
+      "rule": "verb LLAMARSE conjugation",
+      "forms": [
+        "Me llamo",
+        "Te llamas",
+        "Se llama"
+      ],
+      "session": "CLASE.3"
+    },
+    {
+      "rule": "verb TENER conjugation",
+      "forms": [
+        "Tengo",
+        "Tienes",
+        "Tiene"
+      ],
+      "session": "CLASE.3"
+    },
+    {
+      "rule": "verb SER conjugation",
+      "forms": [
+        "Soy",
+        "Eres",
+        "Es"
+      ],
+      "session": "CLASE.3"
+    },
+    {
+      "rule": "verb TRABAJAR conjugation",
+      "forms": [
+        "Trabajo",
+        "Trabajas",
+        "Trabaja"
+      ],
+      "session": "CLASE.3"
+    },
+    {
+      "rule": "pronouns de sujeto",
+      "forms": [
+        "yo",
+        "tú",
+        "él/ella"
+      ],
+      "session": "CLASE.3"
+    }
+  ],
+  "all_homework": [
+    {
+      "task": "Página 141: actividad 4",
+      "session": "CLASE.3"
+    },
+    {
+      "task": "Página 142: actividad 5/6/7",
+      "session": "CLASE.3"
+    }
+  ],
+  "last_session": "CLASE.3",
+  "last_updated": "2026-04-16 17:49"
+}
