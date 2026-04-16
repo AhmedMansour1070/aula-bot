@@ -92,6 +92,8 @@ def call_claude(system_prompt, messages, max_tokens=1024):
         "messages": messages,
     }
     resp = requests.post(url, json=body, headers=headers, timeout=30)
+    if not resp.ok:
+        log.error("Anthropic error %s: %s", resp.status_code, resp.text)
     resp.raise_for_status()
     return resp.json()["content"][0]["text"]
 
