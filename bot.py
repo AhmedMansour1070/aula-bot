@@ -27,8 +27,8 @@ POST_HOUR    = 8
 POST_MINUTE  = 0
 
 REVIEW_INTERVALS = [0, 1, 3, 7, 30]
+CONTEXT_URL = "https://raw.githubusercontent.com/AhmedMansour1070/aula-bot/main/context.json"
 
-# Channel name → feature mapping (bot reads channel name from message)
 FEATURE_CHANNELS = {
     "practice":      "practice",
     "homework-help": "homework",
@@ -36,12 +36,58 @@ FEATURE_CHANNELS = {
     "speaking-coach":"speaking",
 }
 
-# Per-user conversation history for #practice
 conversation_histories = {}
 
 
-# ── Google Sheets ────────────────────────────────────────────────────────────
-def get_all_vocab():
+# ── Context from GitHub ──────────────────────────────────────────────────────
+def get_course_context():
+    try:
+        resp = requests.get(CONTEXT_URL, timeout=10)
+        if resp.status_code == 200:
+            return resp.json()
+    except Exception:
+        pass
+    return None
+
+
+def build_vocab_context(context=None):
+    if context and context.get("all_vocab"):
+        lines = []
+        for v in context["all_vocab"]:
+            lines.append(f"- {v['word']} = {v['translation']} (example: {v.get('example','')}) [{v.get('session','')}]")
+        return "\n".join(lines)
+    # Fallback to Google Sheet
+    with urllib.request.urlopen(SHEET_CSV_URL) as response:
+        content = response.read().decode("utf-8")
+    reader = csv.DictReader(io.StringIO(content))
+    rows = [row for row in reader if row.get("Word", "").strip()]
+    if not rows:
+        return "No vocabulary learned yet."
+    return "\n".join(f"- {r['Word']} = {r['Translation']} (example: {r['Example']})" for r in rows)
+
+
+def build_grammar_context(context=None):
+    if not context or not context.get("all_grammar"):
+        return ""
+    lines = []
+    for g in context["all_grammar"]:
+        forms = ", ".join(g.get("forms", []))
+        lines.append(f"- {g['rule']}: {forms}")
+    return "\n".join(lines)
+
+
+def build_homework_context(context=None):
+    if not context or not context.get("sessions"):
+        return "No homework found."
+    last = context["sessions"][-1]
+    lines = [f"Session: {last['session']}"]
+    for h in last.get("homework", []):
+        lines.append(f"- {h}")
+    return "\n".join(lines)
+
+
+# ── Google Sheets (for daily vocab post) ────────────────────────────────────
+def get_all_vocab_sheet():
     with urllib.request.urlopen(SHEET_CSV_URL) as response:
         content = response.read().decode("utf-8")
     reader = csv.DictReader(io.StringIO(content))
@@ -51,7 +97,7 @@ def get_all_vocab():
 def get_todays_words():
     today = datetime.datetime.now(CAIRO_TZ).date()
     new_words, review_words = [], []
-    for row in get_all_vocab():
+    for row in get_all_vocab_sheet():
         date_str = str(row.get("Date", "")).strip()
         if not date_str:
             continue
@@ -65,16 +111,6 @@ def get_todays_words():
         elif delta in REVIEW_INTERVALS[1:]:
             review_words.append(row)
     return new_words, review_words
-
-
-def build_vocab_context():
-    vocab = get_all_vocab()
-    if not vocab:
-        return "No vocabulary learned yet."
-    lines = []
-    for v in vocab:
-        lines.append(f"- {v['Word']} = {v['Translation']} (example: {v['Example']}) [Unit: {v['Unit']}]")
-    return "\n".join(lines)
 
 
 # ── Claude API ───────────────────────────────────────────────────────────────
@@ -99,67 +135,103 @@ def call_claude(system_prompt, messages, max_tokens=1024):
 
 
 # ── Feature handlers ─────────────────────────────────────────────────────────
-async def handle_practice(message, vocab_context):
+async def handle_practice(message, context):
     user_id = message.author.id
     if user_id not in conversation_histories:
         conversation_histories[user_id] = []
 
     conversation_histories[user_id].append({"role": "user", "content": message.content})
-
-    # Keep last 20 messages to avoid token overflow
     history = conversation_histories[user_id][-20:]
 
+    vocab = build_vocab_context(context)
+    grammar = build_grammar_context(context)
+    last_session = context.get("last_session", "unknown") if context else "unknown"
+
     system = f"""You are a friendly Spanish conversation partner for an A1-level student.
+They are currently on {last_session} of their course.
+
 STRICT RULES:
-- Only use vocabulary and grammar the student has already learned (listed below)
+- ONLY use vocabulary and grammar structures the student has learned (listed below)
 - Keep sentences short and simple
 - If the student makes a grammar mistake, gently correct it in your reply
 - Respond mostly in Spanish but explain corrections in English
 - Be encouraging and fun
+- Never use vocabulary not in the list below
 
 LEARNED VOCABULARY:
-{vocab_context}
+{vocab}
+
+LEARNED GRAMMAR STRUCTURES:
+{grammar}
 """
     reply = call_claude(system, history)
     conversation_histories[user_id].append({"role": "assistant", "content": reply})
     return reply
 
 
-async def handle_homework(message, vocab_context):
-    system = f"""You are a Spanish homework checker for an A1-level student.
-- Check their answers carefully
+async def handle_homework(message, context):
+    homework = build_homework_context(context)
+    last_session = context.get("last_session", "unknown") if context else "unknown"
+
+    system = f"""You are a Spanish homework checker for an A1-level student on {last_session}.
+
+The actual homework assigned was:
+{homework}
+
+Your job:
+- If the student pastes their answers, check them against the homework tasks above
 - For wrong answers: explain WHY it's wrong in simple English, give the correct answer
-- For correct answers: confirm and give a brief explanation of the rule
-- Be encouraging
-- Student's learned vocabulary for context: {vocab_context[:500]}
+- For correct answers: confirm and briefly explain the rule
+- If they ask for help understanding a homework task, explain it clearly
+- Be encouraging and specific to their actual assignments
 """
-    messages = [{"role": "user", "content": f"Please check my homework:\n\n{message.content}"}]
+    messages = [{"role": "user", "content": message.content}]
     return call_claude(system, messages)
 
 
-async def handle_exercises(message, vocab_context):
-    system = """You are a Spanish exercise generator for an A1-level student.
-Generate exactly 10 exercises using ONLY the vocabulary provided.
+async def handle_exercises(message, context):
+    vocab = build_vocab_context(context)
+    grammar = build_grammar_context(context)
+
+    system = f"""You are a Spanish exercise generator for an A1-level student.
+Generate exactly 10 exercises using ONLY the vocabulary and grammar below.
 Mix these types: fill-in-the-blank, translate to Spanish, translate to English, conjugate the verb.
 Format each exercise clearly numbered 1-10.
 Put answers at the bottom under a "─── ANSWERS ───" separator using spoiler tags: ||answer||
+Adjust difficulty and focus based on the student's request.
+
+VOCABULARY TO USE:
+{vocab}
+
+GRAMMAR STRUCTURES TO USE:
+{grammar}
 """
-    messages = [{"role": "user", "content": f"Generate 10 exercises using this vocabulary:\n{vocab_context}"}]
+    prompt = f"Student request: {message.content.strip()}\n\nGenerate 10 exercises based on the above."
+    messages = [{"role": "user", "content": prompt}]
     return call_claude(system, messages, max_tokens=2000)
 
 
-async def handle_speaking(message, vocab_context):
+async def handle_speaking(message, context):
+    vocab = build_vocab_context(context)
+    grammar = build_grammar_context(context)
+
     system = f"""You are a Spanish speaking coach for an A1-level student.
 The student will write a Spanish sentence or paragraph.
+
 Your job:
 1. Grade it: ✅ Correct / ⚠️ Minor errors / ❌ Major errors
 2. Show the corrected version in bold
-3. Explain each mistake in simple English
-4. Give one tip to improve
-Keep feedback short and encouraging.
-Student's learned vocabulary: {vocab_context[:500]}
+3. Explain each mistake in simple English, referencing the grammar rules they've learned
+4. Give one actionable tip to improve
+
+Only flag mistakes related to grammar and vocabulary they've already studied:
+LEARNED VOCABULARY:
+{vocab}
+
+LEARNED GRAMMAR:
+{grammar}
 """
-    messages = [{"role": "user", "content": f"Please check my Spanish: {message.content}"}]
+    messages = [{"role": "user", "content": f"Please check my Spanish:\n{message.content}"}]
     return call_claude(system, messages)
 
 
@@ -240,16 +312,16 @@ async def on_message(message):
 
     async with message.channel.typing():
         try:
-            vocab_context = build_vocab_context()
+            context = get_course_context()
 
             if feature == "practice":
-                reply = await handle_practice(message, vocab_context)
+                reply = await handle_practice(message, context)
             elif feature == "homework":
-                reply = await handle_homework(message, vocab_context)
+                reply = await handle_homework(message, context)
             elif feature == "exercises":
-                reply = await handle_exercises(message, vocab_context)
+                reply = await handle_exercises(message, context)
             elif feature == "speaking":
-                reply = await handle_speaking(message, vocab_context)
+                reply = await handle_speaking(message, context)
             else:
                 return
 
