@@ -86,7 +86,7 @@ def call_claude(system_prompt, messages, max_tokens=1024):
         "content-type": "application/json",
     }
     body = {
-        "model": "claude-3-5-haiku-20241022",
+        "model": "claude-haiku-4-5-20251001",
         "max_tokens": max_tokens,
         "system": system_prompt,
         "messages": messages,
