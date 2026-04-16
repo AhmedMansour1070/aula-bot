@@ -71,7 +71,7 @@
           "type": "symbol"
         },
         {
-          "word": "guión bajo",
+          "word": "guion bajo",
           "translation": "underscore",
           "example": "omar_hammad@hotmail.com",
           "type": "symbol"
@@ -79,43 +79,37 @@
         {
           "word": "h",
           "translation": "ه",
-          "example": "",
+          "example": "La letra h se lee como ه",
           "type": "letter"
         },
         {
-          "word": "haber",
-          "translation": "to have",
-          "example": "",
-          "type": "verb"
-        },
-        {
-          "word": "llamarse",
+          "word": "LLAMARSE",
           "translation": "to be called",
           "example": "Me llamo Omar",
           "type": "verb"
         },
         {
-          "word": "tener",
+          "word": "TENER",
           "translation": "to have",
           "example": "Tengo 30 años",
           "type": "verb"
         },
         {
-          "word": "ser",
+          "word": "SER",
           "translation": "to be",
           "example": "Soy egipcio de Egipto",
           "type": "verb"
         },
         {
-          "word": "trabajar",
+          "word": "TRABAJAR",
           "translation": "to work",
           "example": "Trabajo de profesor de español",
           "type": "verb"
         },
         {
-          "word": "deber",
+          "word": "DEBER",
           "translation": "to have to",
-          "example": "",
+          "example": "Debo hacer mi tarea",
           "type": "verb"
         }
       ],
@@ -153,11 +147,11 @@
           ]
         },
         {
-          "rule": "pronouns de sujeto",
+          "rule": "verb DEBER conjugation",
           "forms": [
-            "yo",
-            "tú",
-            "él/ella"
+            "Debo",
+            "Debes",
+            "Debe"
           ]
         }
       ],
@@ -165,17 +159,17 @@
         "Página 141: actividad 4",
         "Página 142: actividad 5/6/7"
       ],
+      "homework_pages": {
+        "141": "Unidad 1 \n➔ \npág. 141 \nUnidad 2 \n➔ \npág. 148 \nUnidad 3 \n➔ \npág. 155 \nUnidad 4 \n➔ \npág. 162 \nUnidad 5 \n➔ \npág. 169 \nUnidad 6 \n➔ \npág. 176 \nUnidad 7 \n➔ \npág. 183 \nUnidad 8 \n➔ \npág. 190 \nUnidad 9 \n➔ \npág. 197 \nEste es tu cuaderno de ejercicios. En él encontrarás actividades dise-\nñadas para fijar y entender mejor cuestiones gramaticales y léxicas. \nEstos ejercicios pueden realizarse individualmente, pero también los \npuede usar el/ la docente en clase cuando considere oportuno reforzar \nun determinado aspecto. \nTambién puede resultar interesante hacer estas actividades con otras \npersonas de la clase. Piensa que no solo aprendemos cosas con el pro-\nfesor o la profesora; en muchas ocasiones, reflexionar con otro/a estu-\ndiante sobre cuestiones gramaticales te puede ayudar mucho.",
+        "142": "1. Escribe palabras en español que empiecen \npor estas letras. Puedes usar el diccionario. \nA \nB \n(~ \nD \nE \n11 ............... ,, .......................... . \nN o \np \n(l \nR s \nT \nG \nH \n1 \n(J ··········································· \nJ .............................................. . \nK \nL \n)1 \nV \nw \ny \nz \n2. Clasifica en la tabla estas expresiones. \n¡Adiós! \nBuenos días \n¡Hasta mañana! \n¿Oué tal? \nBuenas t ardes \n¡Hasta el lunes! \nBuenas noches \n¡Hasta luego! \n¡Hola! \n¿Cómo estás? \n¿Cómo andas? \nSALUDAR \nDESPEDIRSE \n1 \n3. Escribe dónde trabajan estas personas. \nPuede haber más de una opción posible. \nen un hotel \nen una tienda \nen un restaurante \nen un hospital \nen un laboratorio \nen una escuela de idiomas \na. un/a profesor/ a: ........................................................................... . \nb. un/a enfermero/a: \nc. un/a camarero/a: \nd. un/a depend iente/a: ................................................................ . \ne . un/a científico/a: \nf. un/ a recepcionista: ................................ . \n4. ¿Quién crees que puede decir las \nsiguientes frases? Márcalo con una x. \nÉL \nELLA \na. Soy Julia. \nb. Tengo 42 años. \nc. Soy informática. \nd. Soy español. \ne. Me llamo Marcos. \nf. Soy española. \ng. Tengo 26 años. \nh. Soy profesor de francés. \nciento cuarenta y uno 141"
+      },
       "useful_phrases": [
         "¿cómo te llamas?",
         "Me llamo...",
-        "¿cómo se llama?",
-        "Se llama...",
         "¿de dónde eres?",
-        "Soy de...",
+        "Soy...",
         "¿cuántos años tienes?",
-        "Tengo... años",
-        "¿en qué trabajas?",
-        "Trabajo de..."
+        "Tengo..."
       ],
       "next_session_prep": [
         "Review verb conjugations",
@@ -255,7 +249,7 @@
       "session": "CLASE.3"
     },
     {
-      "word": "guión bajo",
+      "word": "guion bajo",
       "translation": "underscore",
       "example": "omar_hammad@hotmail.com",
       "type": "symbol",
@@ -264,49 +258,42 @@
     {
       "word": "h",
       "translation": "ه",
-      "example": "",
+      "example": "La letra h se lee como ه",
       "type": "letter",
       "session": "CLASE.3"
     },
     {
-      "word": "haber",
-      "translation": "to have",
-      "example": "",
-      "type": "verb",
-      "session": "CLASE.3"
-    },
-    {
-      "word": "llamarse",
+      "word": "LLAMARSE",
       "translation": "to be called",
       "example": "Me llamo Omar",
       "type": "verb",
       "session": "CLASE.3"
     },
     {
-      "word": "tener",
+      "word": "TENER",
       "translation": "to have",
       "example": "Tengo 30 años",
       "type": "verb",
       "session": "CLASE.3"
     },
     {
-      "word": "ser",
+      "word": "SER",
       "translation": "to be",
       "example": "Soy egipcio de Egipto",
       "type": "verb",
       "session": "CLASE.3"
     },
     {
-      "word": "trabajar",
+      "word": "TRABAJAR",
       "translation": "to work",
       "example": "Trabajo de profesor de español",
       "type": "verb",
       "session": "CLASE.3"
     },
     {
-      "word": "deber",
+      "word": "DEBER",
       "translation": "to have to",
-      "example": "",
+      "example": "Debo hacer mi tarea",
       "type": "verb",
       "session": "CLASE.3"
     }
@@ -349,11 +336,11 @@
       "session": "CLASE.3"
     },
     {
-      "rule": "pronouns de sujeto",
+      "rule": "verb DEBER conjugation",
       "forms": [
-        "yo",
-        "tú",
-        "él/ella"
+        "Debo",
+        "Debes",
+        "Debe"
       ],
       "session": "CLASE.3"
     }
@@ -369,5 +356,5 @@
     }
   ],
   "last_session": "CLASE.3",
-  "last_updated": "2026-04-16 17:49"
+  "last_updated": "2026-04-16 23:53"
 }
