@@ -36,7 +36,7 @@ FEATURE_CHANNELS = {
     "speaking-coach":"speaking",
 }
 
-APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQ5QJepxpqZticVIXHsnFz2Ybr-aePTHxo7lvbW60b-hxujExawol8ZAoAJQ8yciKD5g/exec"
+APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzOAOdJRzhmDqSMEtBclPgw9nDLrs-sqxzIyjApRvOM8QoWYNSlcXABhXRgVStusK_iRA/exec"
 APPS_SCRIPT_KEY = "aulabot2026"
 
 conversation_histories = {}
