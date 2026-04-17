@@ -297,7 +297,74 @@ async def post_daily_word():
 # ── Discord events ───────────────────────────────────────────────────────────
 intents = discord.Intents.default()
 intents.message_content = True
+intents.members = True
 client = discord.Client(intents=intents)
+
+
+WELCOME_MESSAGE = """
+👋 **¡Bienvenido/a a Aula Española!**
+
+This server is your personal Spanish learning hub, powered by AI. Here's how everything works:
+
+───────────────────────────────
+📅 **DAILY PRACTICE**
+───────────────────────────────
+**#vocab-of-the-day**
+Every day at 8:00 AM Cairo time, new Spanish words are posted here automatically — including spaced repetition reviews of older words so you never forget them.
+
+───────────────────────────────
+🤖 **SPANISH WITH CLAUDE (AI Tutor)**
+───────────────────────────────
+**#practice**
+Chat in Spanish! The AI knows exactly what vocabulary and grammar you've learned and will only use those. It corrects your mistakes gently.
+→ Just type naturally: `Hola, ¿cómo te llamas?`
+
+**#speaking-coach**
+Write any Spanish sentence and get instant feedback.
+→ Type: `Yo tiene 25 años` → AI grades it and explains the mistake
+
+**#homework-help**
+Paste your homework questions and answers. The AI knows your actual homework assignments and checks them against the real textbook exercises.
+→ Type: `what is my homework?` or paste your answers
+
+**#exercises**
+Generate custom practice exercises based on your learned vocabulary and grammar.
+→ Type: `give me 10 hard conjugation exercises`
+→ Or: `translate these words to Spanish`
+→ Or: `mix everything and make it challenging`
+
+───────────────────────────────
+📚 **SESSION NOTES (Auto-filled after each class)**
+───────────────────────────────
+**#session-summary** — Full summary of what was covered in class
+**#homework** — Homework assignments extracted from class notes
+**#next-session** — What to prepare before the next class + vocab to add to the sheet
+
+───────────────────────────────
+📖 **RESOURCES**
+───────────────────────────────
+**#grammar-reference** — Clean grammar tables and conjugations from each session
+**#useful-links** — YouTube videos and websites shared by your teacher
+
+───────────────────────────────
+💡 **TIPS**
+───────────────────────────────
+• The AI only knows what **you've studied** — it won't overwhelm you with advanced content
+• Use **#practice** every day, even for 5 minutes
+• After each class, the teacher runs a script that automatically updates all channels
+• Add new vocab words to the Google Sheet so they appear in **#vocab-of-the-day**
+
+¡Buena suerte! 🇪🇸
+"""
+
+
+@client.event
+async def on_member_join(member):
+    try:
+        await member.send(WELCOME_MESSAGE)
+        log.info("Sent welcome DM to %s", member.name)
+    except Exception as e:
+        log.warning("Could not DM %s: %s", member.name, e)
 
 
 @client.event
