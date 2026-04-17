@@ -36,6 +36,9 @@ FEATURE_CHANNELS = {
     "speaking-coach":"speaking",
 }
 
+APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyQ5QJepxpqZticVIXHsnFz2Ybr-aePTHxo7lvbW60b-hxujExawol8ZAoAJQ8yciKD5g/exec"
+APPS_SCRIPT_KEY = "aulabot2026"
+
 conversation_histories = {}
 
 
@@ -301,6 +304,60 @@ intents.members = True
 client = discord.Client(intents=intents)
 
 
+async def handle_addword(message, context):
+    """!addword <spanish word> — auto-translates, generates example, adds to sheet."""
+    word = message.content[len("!addword"):].strip()
+    if not word:
+        await message.channel.send("Usage: `!addword <spanish word>`")
+        return
+
+    async with message.channel.typing():
+        last_session = context.get("last_session", "CLASE.1") if context else "CLASE.1"
+
+        # Use Claude to translate and generate example
+        system = "You are a Spanish language assistant. Return ONLY valid JSON, no extra text."
+        prompt = f"""For the Spanish word "{word}", return this JSON:
+{{
+  "word": "{word}",
+  "translation": "English translation here",
+  "example": "A simple example sentence in Spanish using this word"
+}}"""
+        result_text = call_claude(system, [{"role": "user", "content": prompt}], max_tokens=200)
+
+        try:
+            if "```" in result_text:
+                result_text = result_text.split("```")[1]
+                if result_text.startswith("json"):
+                    result_text = result_text[4:]
+            word_data = json.loads(result_text.strip())
+        except Exception:
+            await message.channel.send(f"⚠️ Could not process `{word}`. Try again.")
+            return
+
+        today = datetime.datetime.now(CAIRO_TZ).strftime("%Y-%m-%d")
+        payload = {
+            "key": APPS_SCRIPT_KEY,
+            "action": "add_word",
+            "date": today,
+            "word": word_data["word"],
+            "translation": word_data["translation"],
+            "example": word_data["example"],
+            "unit": last_session
+        }
+
+        try:
+            resp = requests.post(APPS_SCRIPT_URL, json=payload, timeout=15)
+            resp.raise_for_status()
+            await message.channel.send(
+                f"✅ **Added to your vocab sheet!**\n"
+                f"🇪🇸 **{word_data['word']}** → 🇬🇧 {word_data['translation']}\n"
+                f"💬 _{word_data['example']}_"
+            )
+        except Exception as e:
+            log.error("Sheet write error: %s", e)
+            await message.channel.send("⚠️ Word processed but failed to write to sheet.")
+
+
 @client.event
 async def on_member_join(member):
     try:
@@ -377,6 +434,12 @@ async def on_ready():
 @client.event
 async def on_message(message):
     if message.author.bot:
+        return
+
+    # !addword command — works in any channel
+    if message.content.startswith("!addword"):
+        context = get_course_context()
+        await handle_addword(message, context)
         return
 
     channel_name = message.channel.name
