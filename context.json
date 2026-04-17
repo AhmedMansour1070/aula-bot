@@ -79,41 +79,35 @@
         {
           "word": "h",
           "translation": "ه",
-          "example": "hola",
+          "example": "La letra h se lee como ه",
           "type": "letter"
         },
         {
-          "word": "hablar",
-          "translation": "to speak",
-          "example": "Hablo español",
-          "type": "verb"
-        },
-        {
-          "word": "llamarse",
+          "word": "LLAMARSE",
           "translation": "to be called",
           "example": "Me llamo Omar",
           "type": "verb"
         },
         {
-          "word": "tener",
+          "word": "TENER",
           "translation": "to have",
           "example": "Tengo 30 años",
           "type": "verb"
         },
         {
-          "word": "ser",
+          "word": "SER",
           "translation": "to be",
-          "example": "Soy egipcio",
+          "example": "Soy egipcio de Egipto",
           "type": "verb"
         },
         {
-          "word": "trabajar",
+          "word": "TRABAJAR",
           "translation": "to work",
-          "example": "Trabajo de profesor",
+          "example": "Trabajo de profesor de español",
           "type": "verb"
         },
         {
-          "word": "deber",
+          "word": "DEBER",
           "translation": "to have to",
           "example": "Debo hacer mi tarea",
           "type": "verb"
@@ -123,41 +117,41 @@
         {
           "rule": "verb LLAMARSE conjugation",
           "forms": [
-            "yo me llamo",
-            "tú te llamas",
-            "él/ella se llama"
+            "Me llamo",
+            "Te llamas",
+            "Se llama"
           ]
         },
         {
           "rule": "verb TENER conjugation",
           "forms": [
-            "yo tengo",
-            "tú tienes",
-            "él/ella tiene"
+            "Tengo",
+            "Tienes",
+            "Tiene"
           ]
         },
         {
           "rule": "verb SER conjugation",
           "forms": [
-            "yo soy",
-            "tú eres",
-            "él/ella es"
+            "Soy",
+            "Eres",
+            "Es"
           ]
         },
         {
           "rule": "verb TRABAJAR conjugation",
           "forms": [
-            "yo trabajo",
-            "tú trabajas",
-            "él/ella trabaja"
+            "Trabajo",
+            "Trabajas",
+            "Trabaja"
           ]
         },
         {
-          "rule": "verb DEBER conjugation",
+          "rule": "pronouns of subject",
           "forms": [
-            "yo debo",
-            "tú debes",
-            "él/ella debe"
+            "yo",
+            "tú",
+            "él/ella"
           ]
         }
       ],
@@ -167,19 +161,15 @@
       ],
       "homework_pages": {
         "141": "Unidad 1 \n➔ \npág. 141 \nUnidad 2 \n➔ \npág. 148 \nUnidad 3 \n➔ \npág. 155 \nUnidad 4 \n➔ \npág. 162 \nUnidad 5 \n➔ \npág. 169 \nUnidad 6 \n➔ \npág. 176 \nUnidad 7 \n➔ \npág. 183 \nUnidad 8 \n➔ \npág. 190 \nUnidad 9 \n➔ \npág. 197 \nEste es tu cuaderno de ejercicios. En él encontrarás actividades dise-\nñadas para fijar y entender mejor cuestiones gramaticales y léxicas. \nEstos ejercicios pueden realizarse individualmente, pero también los \npuede usar el/ la docente en clase cuando considere oportuno reforzar \nun determinado aspecto. \nTambién puede resultar interesante hacer estas actividades con otras \npersonas de la clase. Piensa que no solo aprendemos cosas con el pro-\nfesor o la profesora; en muchas ocasiones, reflexionar con otro/a estu-\ndiante sobre cuestiones gramaticales te puede ayudar mucho.",
-        "142": "1. Escribe palabras en español que empiecen \npor estas letras. Puedes usar el diccionario. \nA \nB \n(~ \nD \nE \n11 ............... ,, .......................... . \nN o \np \n(l \nR s \nT \nG \nH \n1 \n(J ··········································· \nJ .............................................. . \nK \nL \n)1 \nV \nw \ny \nz \n2. Clasifica en la tabla estas expresiones. \n¡Adiós! \nBuenos días \n¡Hasta mañana! \n¿Oué tal? \nBuenas t ardes \n¡Hasta el lunes! \nBuenas noches \n¡Hasta luego! \n¡Hola! \n¿Cómo estás? \n¿Cómo andas? \nSALUDAR \nDESPEDIRSE \n1 \n3. Escribe dónde trabajan estas personas. \nPuede haber más de una opción posible. \nen un hotel \nen una tienda \nen un restaurante \nen un hospital \nen un laboratorio \nen una escuela de idiomas \na. un/a profesor/ a: ........................................................................... . \nb. un/a enfermero/a: \nc. un/a camarero/a: \nd. un/a depend iente/a: ................................................................ . \ne . un/a científico/a: \nf. un/ a recepcionista: ................................ . \n4. ¿Quién crees que puede decir las \nsiguientes frases? Márcalo con una x. \nÉL \nELLA \na. Soy Julia. \nb. Tengo 42 años. \nc. Soy informática. \nd. Soy español. \ne. Me llamo Marcos. \nf. Soy española. \ng. Tengo 26 años. \nh. Soy profesor de francés. \nciento cuarenta y uno 141"
+        "142": "5. Piensa en cinco personas que conoces y \nescribe su profesión y su lugar de trabajo. \na . . M.i..a.rr1ilO. .. ?e::rie.-... 0 ... c.1~~~.ie::~te:.~ .. t@~~a. ... e::~ .Y.~a. ... \n. :h.~~a. .. ~ \n.. r.~fa,: .................................................................... . \nb. \nc. \nd. \ne. \n6. El recepcionista de un hotel te pide tus \ndatos. Completa la conversación. \n• Hola, buenos días. \no Hola. \n• Su nombre, por favor. \no \n142 ciento cuarenta y dos \n• ¿Nacionalidad? \no \n• ¿Profesión? \no \n• Muchas gracias. \n0 \nDe nada. Hasta luego. \n7. Relaciona cada pregunta con la respuesta \nadecuada. \na. ¿Cómo te llamas? \nb. ¿Cuántos años tienes? \nc. ¿En qué trabajas? \nd. ¿Eres española? \ne. ¿Tienes correo electrónico? \nf. ¿Tienes móvil? \ng. ¿Dónde trabajas? \n1. Soy profesora de italiano. \n2. Sí, federica25@aula.it. \n3. 25. \n4. No, soy italiana. \n5. Federica. \n6. En una escuela de idiomas. \n7. Sí, es el 657890345 \na \nb \ne \nd \ne \nf \ng \n5 \n8. Ahora, responde en tu cuaderno a las \npreguntas de la actividad 7."
       },
       "useful_phrases": [
         "¿cómo te llamas?",
         "Me llamo...",
-        "¿cómo se llama?",
-        "Se llama...",
         "¿de dónde eres?",
-        "Soy de...",
+        "Soy...",
         "¿cuántos años tienes?",
-        "Tengo...",
-        "¿en qué trabajas?",
-        "Trabajo de..."
+        "Tengo..."
       ],
       "next_session_prep": [
         "Review verb conjugations",
@@ -268,47 +258,40 @@
     {
       "word": "h",
       "translation": "ه",
-      "example": "hola",
+      "example": "La letra h se lee como ه",
       "type": "letter",
       "session": "CLASE.3"
     },
     {
-      "word": "hablar",
-      "translation": "to speak",
-      "example": "Hablo español",
-      "type": "verb",
-      "session": "CLASE.3"
-    },
-    {
-      "word": "llamarse",
+      "word": "LLAMARSE",
       "translation": "to be called",
       "example": "Me llamo Omar",
       "type": "verb",
       "session": "CLASE.3"
     },
     {
-      "word": "tener",
+      "word": "TENER",
       "translation": "to have",
       "example": "Tengo 30 años",
       "type": "verb",
       "session": "CLASE.3"
     },
     {
-      "word": "ser",
+      "word": "SER",
       "translation": "to be",
-      "example": "Soy egipcio",
+      "example": "Soy egipcio de Egipto",
       "type": "verb",
       "session": "CLASE.3"
     },
     {
-      "word": "trabajar",
+      "word": "TRABAJAR",
       "translation": "to work",
-      "example": "Trabajo de profesor",
+      "example": "Trabajo de profesor de español",
       "type": "verb",
       "session": "CLASE.3"
     },
     {
-      "word": "deber",
+      "word": "DEBER",
       "translation": "to have to",
       "example": "Debo hacer mi tarea",
       "type": "verb",
@@ -319,45 +302,45 @@
     {
       "rule": "verb LLAMARSE conjugation",
       "forms": [
-        "yo me llamo",
-        "tú te llamas",
-        "él/ella se llama"
+        "Me llamo",
+        "Te llamas",
+        "Se llama"
       ],
       "session": "CLASE.3"
     },
     {
       "rule": "verb TENER conjugation",
       "forms": [
-        "yo tengo",
-        "tú tienes",
-        "él/ella tiene"
+        "Tengo",
+        "Tienes",
+        "Tiene"
       ],
       "session": "CLASE.3"
     },
     {
       "rule": "verb SER conjugation",
       "forms": [
-        "yo soy",
-        "tú eres",
-        "él/ella es"
+        "Soy",
+        "Eres",
+        "Es"
       ],
       "session": "CLASE.3"
     },
     {
       "rule": "verb TRABAJAR conjugation",
       "forms": [
-        "yo trabajo",
-        "tú trabajas",
-        "él/ella trabaja"
+        "Trabajo",
+        "Trabajas",
+        "Trabaja"
       ],
       "session": "CLASE.3"
     },
     {
-      "rule": "verb DEBER conjugation",
+      "rule": "pronouns of subject",
       "forms": [
-        "yo debo",
-        "tú debes",
-        "él/ella debe"
+        "yo",
+        "tú",
+        "él/ella"
       ],
       "session": "CLASE.3"
     }
@@ -373,5 +356,5 @@
     }
   ],
   "last_session": "CLASE.3",
-  "last_updated": "2026-04-17 03:11"
+  "last_updated": "2026-04-17 03:13"
 }
