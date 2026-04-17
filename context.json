@@ -2,52 +2,52 @@
   "sessions": [
     {
       "session": "CLASE.3",
-      "date": "2026-04-16",
+      "date": "2026-04-17",
       "topics": [
         "Nacionalidad VS País",
         "Correo electrónico",
         "Pronombres de sujeto",
-        "Verbos LLAMARSE, TENER, SER, TRABAJAR, DEBER"
+        "Verbos LLAMARSE, TENER, SER, TRABAJAR"
       ],
       "vocabulary": [
         {
-          "word": "Canadiense",
+          "word": "canadiense",
           "translation": "Canadian",
           "example": "Soy canadiense de Canadá",
           "type": "nationality"
         },
         {
-          "word": "Brasileño",
+          "word": "brasileño",
           "translation": "Brazilian",
           "example": "Soy brasileño de Brasil",
           "type": "nationality"
         },
         {
-          "word": "Alemán",
+          "word": "alemán",
           "translation": "German",
           "example": "Soy alemán de Alemania",
           "type": "nationality"
         },
         {
-          "word": "Marroquí",
+          "word": "marroquí",
           "translation": "Moroccan",
           "example": "Soy marroquí de Marruecos",
           "type": "nationality"
         },
         {
-          "word": "Argentino",
+          "word": "argentino",
           "translation": "Argentine",
           "example": "Soy argentino de Argentina",
           "type": "nationality"
         },
         {
-          "word": "Francesa",
+          "word": "francesa",
           "translation": "French",
           "example": "Soy francesa de Francia",
           "type": "nationality"
         },
         {
-          "word": "Egipcio",
+          "word": "egipcio",
           "translation": "Egyptian",
           "example": "Soy egipcio de Egipto",
           "type": "nationality"
@@ -71,7 +71,7 @@
           "type": "symbol"
         },
         {
-          "word": "guion bajo",
+          "word": "guión bajo",
           "translation": "underscore",
           "example": "omar_hammad@hotmail.com",
           "type": "symbol"
@@ -83,75 +83,61 @@
           "type": "letter"
         },
         {
-          "word": "LLAMARSE",
-          "translation": "to be called",
-          "example": "Me llamo Omar",
-          "type": "verb"
-        },
-        {
-          "word": "TENER",
-          "translation": "to have",
-          "example": "Tengo 30 años",
-          "type": "verb"
-        },
-        {
-          "word": "SER",
-          "translation": "to be",
-          "example": "Soy egipcio de Egipto",
-          "type": "verb"
-        },
-        {
-          "word": "TRABAJAR",
-          "translation": "to work",
+          "word": "profesor",
+          "translation": "teacher",
           "example": "Trabajo de profesor de español",
-          "type": "verb"
+          "type": "profession"
         },
         {
-          "word": "DEBER",
-          "translation": "to have to",
-          "example": "Debo hacer mi tarea",
-          "type": "verb"
+          "word": "científico",
+          "translation": "scientist",
+          "example": "Trabaja de científico",
+          "type": "profession"
+        },
+        {
+          "word": "nombre",
+          "translation": "name",
+          "example": "¿Cuál es su nombre?",
+          "type": "noun"
+        },
+        {
+          "word": "apellido",
+          "translation": "last name",
+          "example": "¿Cuál es su apellido?",
+          "type": "noun"
         }
       ],
       "grammar": [
         {
           "rule": "verb LLAMARSE conjugation",
           "forms": [
-            "Me llamo",
-            "Te llamas",
-            "Se llama"
+            "me llamo",
+            "te llamas",
+            "se llama"
           ]
         },
         {
           "rule": "verb TENER conjugation",
           "forms": [
-            "Tengo",
-            "Tienes",
-            "Tiene"
+            "tengo",
+            "tienes",
+            "tiene"
           ]
         },
         {
           "rule": "verb SER conjugation",
           "forms": [
-            "Soy",
-            "Eres",
-            "Es"
+            "soy",
+            "eres",
+            "es"
           ]
         },
         {
           "rule": "verb TRABAJAR conjugation",
           "forms": [
-            "Trabajo",
-            "Trabajas",
-            "Trabaja"
-          ]
-        },
-        {
-          "rule": "verb DEBER conjugation",
-          "forms": [
-            "Debo",
-            "Debes",
-            "Debe"
+            "trabajo",
+            "trabajas",
+            "trabaja"
           ]
         }
       ],
@@ -166,10 +152,14 @@
       "useful_phrases": [
         "¿cómo te llamas?",
         "Me llamo...",
+        "¿cómo se llama?",
+        "Se llama...",
         "¿de dónde eres?",
-        "Soy...",
+        "Soy de...",
         "¿cuántos años tienes?",
-        "Tengo..."
+        "Tengo... años",
+        "¿en qué trabajas?",
+        "Trabajo de..."
       ],
       "next_session_prep": [
         "Review verb conjugations",
@@ -179,49 +169,49 @@
   ],
   "all_vocab": [
     {
-      "word": "Canadiense",
+      "word": "canadiense",
       "translation": "Canadian",
       "example": "Soy canadiense de Canadá",
       "type": "nationality",
       "session": "CLASE.3"
     },
     {
-      "word": "Brasileño",
+      "word": "brasileño",
       "translation": "Brazilian",
       "example": "Soy brasileño de Brasil",
       "type": "nationality",
       "session": "CLASE.3"
     },
     {
-      "word": "Alemán",
+      "word": "alemán",
       "translation": "German",
       "example": "Soy alemán de Alemania",
       "type": "nationality",
       "session": "CLASE.3"
     },
     {
-      "word": "Marroquí",
+      "word": "marroquí",
       "translation": "Moroccan",
       "example": "Soy marroquí de Marruecos",
       "type": "nationality",
       "session": "CLASE.3"
     },
     {
-      "word": "Argentino",
+      "word": "argentino",
       "translation": "Argentine",
       "example": "Soy argentino de Argentina",
       "type": "nationality",
       "session": "CLASE.3"
     },
     {
-      "word": "Francesa",
+      "word": "francesa",
       "translation": "French",
       "example": "Soy francesa de Francia",
       "type": "nationality",
       "session": "CLASE.3"
     },
     {
-      "word": "Egipcio",
+      "word": "egipcio",
       "translation": "Egyptian",
       "example": "Soy egipcio de Egipto",
       "type": "nationality",
@@ -249,7 +239,7 @@
       "session": "CLASE.3"
     },
     {
-      "word": "guion bajo",
+      "word": "guión bajo",
       "translation": "underscore",
       "example": "omar_hammad@hotmail.com",
       "type": "symbol",
@@ -263,38 +253,31 @@
       "session": "CLASE.3"
     },
     {
-      "word": "LLAMARSE",
-      "translation": "to be called",
-      "example": "Me llamo Omar",
-      "type": "verb",
-      "session": "CLASE.3"
-    },
-    {
-      "word": "TENER",
-      "translation": "to have",
-      "example": "Tengo 30 años",
-      "type": "verb",
-      "session": "CLASE.3"
-    },
-    {
-      "word": "SER",
-      "translation": "to be",
-      "example": "Soy egipcio de Egipto",
-      "type": "verb",
-      "session": "CLASE.3"
-    },
-    {
-      "word": "TRABAJAR",
-      "translation": "to work",
+      "word": "profesor",
+      "translation": "teacher",
       "example": "Trabajo de profesor de español",
-      "type": "verb",
+      "type": "profession",
       "session": "CLASE.3"
     },
     {
-      "word": "DEBER",
-      "translation": "to have to",
-      "example": "Debo hacer mi tarea",
-      "type": "verb",
+      "word": "científico",
+      "translation": "scientist",
+      "example": "Trabaja de científico",
+      "type": "profession",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "nombre",
+      "translation": "name",
+      "example": "¿Cuál es su nombre?",
+      "type": "noun",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "apellido",
+      "translation": "last name",
+      "example": "¿Cuál es su apellido?",
+      "type": "noun",
       "session": "CLASE.3"
     }
   ],
@@ -302,45 +285,36 @@
     {
       "rule": "verb LLAMARSE conjugation",
       "forms": [
-        "Me llamo",
-        "Te llamas",
-        "Se llama"
+        "me llamo",
+        "te llamas",
+        "se llama"
       ],
       "session": "CLASE.3"
     },
     {
       "rule": "verb TENER conjugation",
       "forms": [
-        "Tengo",
-        "Tienes",
-        "Tiene"
+        "tengo",
+        "tienes",
+        "tiene"
       ],
       "session": "CLASE.3"
     },
     {
       "rule": "verb SER conjugation",
       "forms": [
-        "Soy",
-        "Eres",
-        "Es"
+        "soy",
+        "eres",
+        "es"
       ],
       "session": "CLASE.3"
     },
     {
       "rule": "verb TRABAJAR conjugation",
       "forms": [
-        "Trabajo",
-        "Trabajas",
-        "Trabaja"
-      ],
-      "session": "CLASE.3"
-    },
-    {
-      "rule": "verb DEBER conjugation",
-      "forms": [
-        "Debo",
-        "Debes",
-        "Debe"
+        "trabajo",
+        "trabajas",
+        "trabaja"
       ],
       "session": "CLASE.3"
     }
@@ -356,5 +330,5 @@
     }
   ],
   "last_session": "CLASE.3",
-  "last_updated": "2026-04-16 23:53"
+  "last_updated": "2026-04-17 02:40"
 }
