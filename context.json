@@ -54,37 +54,37 @@
         },
         {
           "word": "arroba",
-          "translation": "@",
+          "translation": "@ symbol",
           "example": "omar2k@gmail.com",
           "type": "symbol"
         },
         {
           "word": "punto",
-          "translation": ".",
+          "translation": "dot",
           "example": "omar2k@gmail.com",
           "type": "symbol"
         },
         {
           "word": "guión",
-          "translation": "-",
+          "translation": "hyphen",
           "example": "omar-hammad@gmail.com",
           "type": "symbol"
         },
         {
           "word": "guion bajo",
-          "translation": "_",
+          "translation": "underscore",
           "example": "omar_hammad@hotmail.com",
           "type": "symbol"
         },
         {
           "word": "h",
           "translation": "ه",
-          "example": "La letra h se lee como ه",
+          "example": "",
           "type": "letter"
         },
         {
           "word": "LLAMARSE",
-          "translation": "to be called",
+          "translation": "to be named",
           "example": "Me llamo Omar",
           "type": "verb"
         },
@@ -109,7 +109,7 @@
         {
           "word": "DEBER",
           "translation": "to have to",
-          "example": "Debo hacer mi tarea",
+          "example": "",
           "type": "verb"
         }
       ],
@@ -145,14 +145,6 @@
             "Trabajas",
             "Trabaja"
           ]
-        },
-        {
-          "rule": "pronouns of subject",
-          "forms": [
-            "yo",
-            "tú",
-            "él/ella"
-          ]
         }
       ],
       "homework": [
@@ -166,10 +158,14 @@
       "useful_phrases": [
         "¿cómo te llamas?",
         "Me llamo...",
+        "¿cómo se llama?",
+        "Se llama...",
         "¿de dónde eres?",
-        "Soy...",
+        "Soy de...",
         "¿cuántos años tienes?",
-        "Tengo..."
+        "Tengo... años",
+        "¿en qué trabajas?",
+        "Trabajo de..."
       ],
       "next_session_prep": [
         "Review verb conjugations",
@@ -229,28 +225,28 @@
     },
     {
       "word": "arroba",
-      "translation": "@",
+      "translation": "@ symbol",
       "example": "omar2k@gmail.com",
       "type": "symbol",
       "session": "CLASE.3"
     },
     {
       "word": "punto",
-      "translation": ".",
+      "translation": "dot",
       "example": "omar2k@gmail.com",
       "type": "symbol",
       "session": "CLASE.3"
     },
     {
       "word": "guión",
-      "translation": "-",
+      "translation": "hyphen",
       "example": "omar-hammad@gmail.com",
       "type": "symbol",
       "session": "CLASE.3"
     },
     {
       "word": "guion bajo",
-      "translation": "_",
+      "translation": "underscore",
       "example": "omar_hammad@hotmail.com",
       "type": "symbol",
       "session": "CLASE.3"
@@ -258,13 +254,13 @@
     {
       "word": "h",
       "translation": "ه",
-      "example": "La letra h se lee como ه",
+      "example": "",
       "type": "letter",
       "session": "CLASE.3"
     },
     {
       "word": "LLAMARSE",
-      "translation": "to be called",
+      "translation": "to be named",
       "example": "Me llamo Omar",
       "type": "verb",
       "session": "CLASE.3"
@@ -293,7 +289,7 @@
     {
       "word": "DEBER",
       "translation": "to have to",
-      "example": "Debo hacer mi tarea",
+      "example": "",
       "type": "verb",
       "session": "CLASE.3"
     }
@@ -334,15 +330,6 @@
         "Trabaja"
       ],
       "session": "CLASE.3"
-    },
-    {
-      "rule": "pronouns of subject",
-      "forms": [
-        "yo",
-        "tú",
-        "él/ella"
-      ],
-      "session": "CLASE.3"
     }
   ],
   "all_homework": [
@@ -356,5 +343,5 @@
     }
   ],
   "last_session": "CLASE.3",
-  "last_updated": "2026-04-17 03:13"
+  "last_updated": "2026-04-17 19:34"
 }
