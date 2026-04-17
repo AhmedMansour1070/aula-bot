@@ -7,7 +7,7 @@
         "Nacionalidad VS País",
         "Correo electrónico",
         "Pronombres de sujeto",
-        "Verbos LLAMARSE, TENER, SER, TRABAJAR, DEBER"
+        "Verbos LLAMARSE, TENER, SER, TRABAJAR"
       ],
       "vocabulary": [
         {
@@ -54,7 +54,7 @@
         },
         {
           "word": "arroba",
-          "translation": "@ symbol",
+          "translation": "at sign",
           "example": "omar2k@gmail.com",
           "type": "symbol"
         },
@@ -71,7 +71,7 @@
           "type": "symbol"
         },
         {
-          "word": "guion bajo",
+          "word": "guión bajo",
           "translation": "underscore",
           "example": "omar_hammad@hotmail.com",
           "type": "symbol"
@@ -79,71 +79,95 @@
         {
           "word": "h",
           "translation": "ه",
-          "example": "",
+          "example": "La letra h se lee como ه",
           "type": "letter"
         },
         {
-          "word": "LLAMARSE",
-          "translation": "to be named",
+          "word": "Me llamo",
+          "translation": "My name is",
           "example": "Me llamo Omar",
-          "type": "verb"
+          "type": "introduction"
         },
         {
-          "word": "TENER",
+          "word": "¿cómo te llamas?",
+          "translation": "What's your name?",
+          "example": "¿cómo te llamas?",
+          "type": "question"
+        },
+        {
+          "word": "¿cómo se llama?",
+          "translation": "What's his/her name?",
+          "example": "¿cómo se llama?",
+          "type": "question"
+        },
+        {
+          "word": "Tener",
           "translation": "to have",
           "example": "Tengo 30 años",
           "type": "verb"
         },
         {
-          "word": "SER",
-          "translation": "to be",
+          "word": "¿cuántos años tienes?",
+          "translation": "How old are you?",
+          "example": "¿cuántos años tienes?",
+          "type": "question"
+        },
+        {
+          "word": "Soy",
+          "translation": "I am",
           "example": "Soy egipcio de Egipto",
           "type": "verb"
         },
         {
-          "word": "TRABAJAR",
+          "word": "¿de dónde eres?",
+          "translation": "Where are you from?",
+          "example": "¿de dónde eres?",
+          "type": "question"
+        },
+        {
+          "word": "Trabajar",
           "translation": "to work",
           "example": "Trabajo de profesor de español",
           "type": "verb"
         },
         {
-          "word": "DEBER",
-          "translation": "to have to",
-          "example": "",
-          "type": "verb"
+          "word": "¿en qué trabajas?",
+          "translation": "What do you do?",
+          "example": "¿en qué trabajas?",
+          "type": "question"
         }
       ],
       "grammar": [
         {
           "rule": "verb LLAMARSE conjugation",
           "forms": [
-            "Me llamo",
-            "Te llamas",
-            "Se llama"
+            "yo me llamo",
+            "tú te llamas",
+            "él/ella se llama"
           ]
         },
         {
           "rule": "verb TENER conjugation",
           "forms": [
-            "Tengo",
-            "Tienes",
-            "Tiene"
+            "yo tengo",
+            "tú tienes",
+            "él/ella tiene"
           ]
         },
         {
           "rule": "verb SER conjugation",
           "forms": [
-            "Soy",
-            "Eres",
-            "Es"
+            "yo soy",
+            "tú eres",
+            "él/ella es"
           ]
         },
         {
           "rule": "verb TRABAJAR conjugation",
           "forms": [
-            "Trabajo",
-            "Trabajas",
-            "Trabaja"
+            "yo trabajo",
+            "tú trabajas",
+            "él/ella trabaja"
           ]
         }
       ],
@@ -159,12 +183,8 @@
         "¿cómo te llamas?",
         "Me llamo...",
         "¿cómo se llama?",
-        "Se llama...",
-        "¿de dónde eres?",
-        "Soy de...",
-        "¿cuántos años tienes?",
-        "Tengo... años",
-        "¿en qué trabajas?",
+        "Soy...",
+        "Tengo...",
         "Trabajo de..."
       ],
       "next_session_prep": [
@@ -225,7 +245,7 @@
     },
     {
       "word": "arroba",
-      "translation": "@ symbol",
+      "translation": "at sign",
       "example": "omar2k@gmail.com",
       "type": "symbol",
       "session": "CLASE.3"
@@ -245,7 +265,7 @@
       "session": "CLASE.3"
     },
     {
-      "word": "guion bajo",
+      "word": "guión bajo",
       "translation": "underscore",
       "example": "omar_hammad@hotmail.com",
       "type": "symbol",
@@ -254,43 +274,71 @@
     {
       "word": "h",
       "translation": "ه",
-      "example": "",
+      "example": "La letra h se lee como ه",
       "type": "letter",
       "session": "CLASE.3"
     },
     {
-      "word": "LLAMARSE",
-      "translation": "to be named",
+      "word": "Me llamo",
+      "translation": "My name is",
       "example": "Me llamo Omar",
-      "type": "verb",
+      "type": "introduction",
       "session": "CLASE.3"
     },
     {
-      "word": "TENER",
+      "word": "¿cómo te llamas?",
+      "translation": "What's your name?",
+      "example": "¿cómo te llamas?",
+      "type": "question",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "¿cómo se llama?",
+      "translation": "What's his/her name?",
+      "example": "¿cómo se llama?",
+      "type": "question",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "Tener",
       "translation": "to have",
       "example": "Tengo 30 años",
       "type": "verb",
       "session": "CLASE.3"
     },
     {
-      "word": "SER",
-      "translation": "to be",
+      "word": "¿cuántos años tienes?",
+      "translation": "How old are you?",
+      "example": "¿cuántos años tienes?",
+      "type": "question",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "Soy",
+      "translation": "I am",
       "example": "Soy egipcio de Egipto",
       "type": "verb",
       "session": "CLASE.3"
     },
     {
-      "word": "TRABAJAR",
+      "word": "¿de dónde eres?",
+      "translation": "Where are you from?",
+      "example": "¿de dónde eres?",
+      "type": "question",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "Trabajar",
       "translation": "to work",
       "example": "Trabajo de profesor de español",
       "type": "verb",
       "session": "CLASE.3"
     },
     {
-      "word": "DEBER",
-      "translation": "to have to",
-      "example": "",
-      "type": "verb",
+      "word": "¿en qué trabajas?",
+      "translation": "What do you do?",
+      "example": "¿en qué trabajas?",
+      "type": "question",
       "session": "CLASE.3"
     }
   ],
@@ -298,36 +346,36 @@
     {
       "rule": "verb LLAMARSE conjugation",
       "forms": [
-        "Me llamo",
-        "Te llamas",
-        "Se llama"
+        "yo me llamo",
+        "tú te llamas",
+        "él/ella se llama"
       ],
       "session": "CLASE.3"
     },
     {
       "rule": "verb TENER conjugation",
       "forms": [
-        "Tengo",
-        "Tienes",
-        "Tiene"
+        "yo tengo",
+        "tú tienes",
+        "él/ella tiene"
       ],
       "session": "CLASE.3"
     },
     {
       "rule": "verb SER conjugation",
       "forms": [
-        "Soy",
-        "Eres",
-        "Es"
+        "yo soy",
+        "tú eres",
+        "él/ella es"
       ],
       "session": "CLASE.3"
     },
     {
       "rule": "verb TRABAJAR conjugation",
       "forms": [
-        "Trabajo",
-        "Trabajas",
-        "Trabaja"
+        "yo trabajo",
+        "tú trabajas",
+        "él/ella trabaja"
       ],
       "session": "CLASE.3"
     }
@@ -343,5 +391,5 @@
     }
   ],
   "last_session": "CLASE.3",
-  "last_updated": "2026-04-17 19:34"
+  "last_updated": "2026-04-17 19:50"
 }
