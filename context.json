@@ -7,54 +7,58 @@
         "Nacionalidad VS País",
         "Correo electrónico",
         "Pronombres de sujeto",
-        "Verbos LLAMARSE, TENER, SER, TRABAJAR, DEBER"
+        "LLAMARSE",
+        "TENER",
+        "SER",
+        "TRABAJAR",
+        "DEBER"
       ],
       "vocabulary": [
         {
-          "word": "Canadiense",
+          "word": "canadiense",
           "translation": "Canadian",
           "example": "Soy canadiense de Canadá",
           "type": "nationality"
         },
         {
-          "word": "Brasileño",
+          "word": "brasileño",
           "translation": "Brazilian",
           "example": "Soy brasileño de Brasil",
           "type": "nationality"
         },
         {
-          "word": "Alemán",
+          "word": "alemán",
           "translation": "German",
           "example": "Soy alemán de Alemania",
           "type": "nationality"
         },
         {
-          "word": "Marroquí",
+          "word": "marroquí",
           "translation": "Moroccan",
           "example": "Soy marroquí de Marruecos",
           "type": "nationality"
         },
         {
-          "word": "Argentino",
+          "word": "argentino",
           "translation": "Argentine",
           "example": "Soy argentino de Argentina",
           "type": "nationality"
         },
         {
-          "word": "Francesa",
+          "word": "francesa",
           "translation": "French",
           "example": "Soy francesa de Francia",
           "type": "nationality"
         },
         {
-          "word": "Egipcio",
+          "word": "egipcio",
           "translation": "Egyptian",
           "example": "Soy egipcio de Egipto",
           "type": "nationality"
         },
         {
           "word": "arroba",
-          "translation": "@ symbol",
+          "translation": "at sign",
           "example": "omar2k@gmail.com",
           "type": "symbol"
         },
@@ -79,32 +83,104 @@
         {
           "word": "h",
           "translation": "ه",
-          "example": "h is a letter in Arabic",
+          "example": "",
           "type": "letter"
         },
         {
-          "word": "profesor",
-          "translation": "teacher",
+          "word": "¿cómo te llamas?",
+          "translation": "what's your name?",
+          "example": "",
+          "type": "question"
+        },
+        {
+          "word": "me llamo",
+          "translation": "my name is",
+          "example": "Me llamo Omar",
+          "type": "phrase"
+        },
+        {
+          "word": "¿cómo se llama?",
+          "translation": "what's his/her name?",
+          "example": "",
+          "type": "question"
+        },
+        {
+          "word": "se llama",
+          "translation": "his/her name is",
+          "example": "Se llama Adel Emam",
+          "type": "phrase"
+        },
+        {
+          "word": "¿cuántos años tienes?",
+          "translation": "how old are you?",
+          "example": "",
+          "type": "question"
+        },
+        {
+          "word": "tengo",
+          "translation": "I have",
+          "example": "Tengo 30 años",
+          "type": "verb"
+        },
+        {
+          "word": "¿cuántos años tiene?",
+          "translation": "how old is he/she?",
+          "example": "",
+          "type": "question"
+        },
+        {
+          "word": "tiene",
+          "translation": "he/she has",
+          "example": "Tiene 85 años",
+          "type": "verb"
+        },
+        {
+          "word": "¿de dónde eres?",
+          "translation": "where are you from?",
+          "example": "",
+          "type": "question"
+        },
+        {
+          "word": "soy",
+          "translation": "I am",
+          "example": "Soy egipcio de Egipto",
+          "type": "verb"
+        },
+        {
+          "word": "¿de dónde es?",
+          "translation": "where is he/she from?",
+          "example": "",
+          "type": "question"
+        },
+        {
+          "word": "es",
+          "translation": "he/she is",
+          "example": "Es argentino de Argentina",
+          "type": "verb"
+        },
+        {
+          "word": "¿en qué trabajas?",
+          "translation": "what do you work as?",
+          "example": "",
+          "type": "question"
+        },
+        {
+          "word": "trabajo",
+          "translation": "I work as",
           "example": "Trabajo de profesor de español",
-          "type": " occupation"
+          "type": "verb"
         },
         {
-          "word": "científico",
-          "translation": "scientist",
+          "word": "¿en qué trabaja?",
+          "translation": "what does he/she work as?",
+          "example": "",
+          "type": "question"
+        },
+        {
+          "word": "trabaja",
+          "translation": "he/she works as",
           "example": "Trabaja de científico",
-          "type": "occupation"
-        },
-        {
-          "word": "nombre",
-          "translation": "name",
-          "example": "¿cuál es su nombre?",
-          "type": "noun"
-        },
-        {
-          "word": "apellido",
-          "translation": "last name",
-          "example": "¿cuál es su apellido?",
-          "type": "noun"
+          "type": "verb"
         }
       ],
       "grammar": [
@@ -139,14 +215,6 @@
             "trabajas",
             "trabaja"
           ]
-        },
-        {
-          "rule": "verb DEBER conjugation",
-          "forms": [
-            "debo",
-            "debes",
-            "debe"
-          ]
         }
       ],
       "homework": [
@@ -162,14 +230,18 @@
         "Me llamo...",
         "¿cómo se llama?",
         "Se llama...",
-        "¿de dónde eres?",
-        "Soy de...",
-        "¿en qué trabajas?",
-        "Trabajo de...",
         "¿cuántos años tienes?",
-        "Tengo... años",
-        "¿cuál es su nombre?",
-        "Se llama..."
+        "Tengo...",
+        "¿cuántos años tiene?",
+        "Tiene...",
+        "¿de dónde eres?",
+        "Soy...",
+        "¿de dónde es?",
+        "Es...",
+        "¿en qué trabajas?",
+        "Trabajo...",
+        "¿en qué trabaja?",
+        "Trabaja..."
       ],
       "next_session_prep": [
         "Review verb conjugations",
@@ -179,49 +251,49 @@
   ],
   "all_vocab": [
     {
-      "word": "Canadiense",
+      "word": "canadiense",
       "translation": "Canadian",
       "example": "Soy canadiense de Canadá",
       "type": "nationality",
       "session": "CLASE.3"
     },
     {
-      "word": "Brasileño",
+      "word": "brasileño",
       "translation": "Brazilian",
       "example": "Soy brasileño de Brasil",
       "type": "nationality",
       "session": "CLASE.3"
     },
     {
-      "word": "Alemán",
+      "word": "alemán",
       "translation": "German",
       "example": "Soy alemán de Alemania",
       "type": "nationality",
       "session": "CLASE.3"
     },
     {
-      "word": "Marroquí",
+      "word": "marroquí",
       "translation": "Moroccan",
       "example": "Soy marroquí de Marruecos",
       "type": "nationality",
       "session": "CLASE.3"
     },
     {
-      "word": "Argentino",
+      "word": "argentino",
       "translation": "Argentine",
       "example": "Soy argentino de Argentina",
       "type": "nationality",
       "session": "CLASE.3"
     },
     {
-      "word": "Francesa",
+      "word": "francesa",
       "translation": "French",
       "example": "Soy francesa de Francia",
       "type": "nationality",
       "session": "CLASE.3"
     },
     {
-      "word": "Egipcio",
+      "word": "egipcio",
       "translation": "Egyptian",
       "example": "Soy egipcio de Egipto",
       "type": "nationality",
@@ -229,7 +301,7 @@
     },
     {
       "word": "arroba",
-      "translation": "@ symbol",
+      "translation": "at sign",
       "example": "omar2k@gmail.com",
       "type": "symbol",
       "session": "CLASE.3"
@@ -258,36 +330,120 @@
     {
       "word": "h",
       "translation": "ه",
-      "example": "h is a letter in Arabic",
+      "example": "",
       "type": "letter",
       "session": "CLASE.3"
     },
     {
-      "word": "profesor",
-      "translation": "teacher",
+      "word": "¿cómo te llamas?",
+      "translation": "what's your name?",
+      "example": "",
+      "type": "question",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "me llamo",
+      "translation": "my name is",
+      "example": "Me llamo Omar",
+      "type": "phrase",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "¿cómo se llama?",
+      "translation": "what's his/her name?",
+      "example": "",
+      "type": "question",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "se llama",
+      "translation": "his/her name is",
+      "example": "Se llama Adel Emam",
+      "type": "phrase",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "¿cuántos años tienes?",
+      "translation": "how old are you?",
+      "example": "",
+      "type": "question",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "tengo",
+      "translation": "I have",
+      "example": "Tengo 30 años",
+      "type": "verb",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "¿cuántos años tiene?",
+      "translation": "how old is he/she?",
+      "example": "",
+      "type": "question",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "tiene",
+      "translation": "he/she has",
+      "example": "Tiene 85 años",
+      "type": "verb",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "¿de dónde eres?",
+      "translation": "where are you from?",
+      "example": "",
+      "type": "question",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "soy",
+      "translation": "I am",
+      "example": "Soy egipcio de Egipto",
+      "type": "verb",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "¿de dónde es?",
+      "translation": "where is he/she from?",
+      "example": "",
+      "type": "question",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "es",
+      "translation": "he/she is",
+      "example": "Es argentino de Argentina",
+      "type": "verb",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "¿en qué trabajas?",
+      "translation": "what do you work as?",
+      "example": "",
+      "type": "question",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "trabajo",
+      "translation": "I work as",
       "example": "Trabajo de profesor de español",
-      "type": " occupation",
+      "type": "verb",
       "session": "CLASE.3"
     },
     {
-      "word": "científico",
-      "translation": "scientist",
+      "word": "¿en qué trabaja?",
+      "translation": "what does he/she work as?",
+      "example": "",
+      "type": "question",
+      "session": "CLASE.3"
+    },
+    {
+      "word": "trabaja",
+      "translation": "he/she works as",
       "example": "Trabaja de científico",
-      "type": "occupation",
-      "session": "CLASE.3"
-    },
-    {
-      "word": "nombre",
-      "translation": "name",
-      "example": "¿cuál es su nombre?",
-      "type": "noun",
-      "session": "CLASE.3"
-    },
-    {
-      "word": "apellido",
-      "translation": "last name",
-      "example": "¿cuál es su apellido?",
-      "type": "noun",
+      "type": "verb",
       "session": "CLASE.3"
     }
   ],
@@ -327,15 +483,6 @@
         "trabaja"
       ],
       "session": "CLASE.3"
-    },
-    {
-      "rule": "verb DEBER conjugation",
-      "forms": [
-        "debo",
-        "debes",
-        "debe"
-      ],
-      "session": "CLASE.3"
     }
   ],
   "all_homework": [
@@ -349,5 +496,5 @@
     }
   ],
   "last_session": "CLASE.3",
-  "last_updated": "2026-04-18 21:23"
+  "last_updated": "2026-04-18 21:24"
 }
