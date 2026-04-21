@@ -247,6 +247,284 @@
         "Review verb conjugations",
         "Practice nationality vocabulary"
       ]
+    },
+    {
+      "session": "CLASE.4",
+      "date": "2026-04-21",
+      "topics": [
+        "Introducciones personales",
+        "Verbos: llamarse, tener, ser"
+      ],
+      "vocabulary": [
+        {
+          "word": "gente",
+          "translation": "people",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "general",
+          "translation": "general",
+          "example": "",
+          "type": "adjective"
+        },
+        {
+          "word": "girar",
+          "translation": "to turn",
+          "example": "",
+          "type": "verb"
+        },
+        {
+          "word": "gigante",
+          "translation": "giant",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "gimnasio",
+          "translation": "gym",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "gemelo",
+          "translation": "twin",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "gesto",
+          "translation": "gesture",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "gitano",
+          "translation": "gypsy",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "gato",
+          "translation": "cat",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "grande",
+          "translation": "big",
+          "example": "",
+          "type": "adjective"
+        },
+        {
+          "word": "goma",
+          "translation": "eraser",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "gol",
+          "translation": "goal",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "gusto",
+          "translation": "taste",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "guitarra",
+          "translation": "guitar",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "gobierno",
+          "translation": "government",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "casa",
+          "translation": "house",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "coche",
+          "translation": "car",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "cama",
+          "translation": "bed",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "cosa",
+          "translation": "thing",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "curso",
+          "translation": "course",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "cubo",
+          "translation": "cube",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "cultura",
+          "translation": "culture",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "queso",
+          "translation": "cheese",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "quiero",
+          "translation": "I want",
+          "example": "",
+          "type": "verb"
+        },
+        {
+          "word": "quién",
+          "translation": "who",
+          "example": "",
+          "type": "pronoun"
+        },
+        {
+          "word": "química",
+          "translation": "chemistry",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "quitar",
+          "translation": "to remove",
+          "example": "",
+          "type": "verb"
+        },
+        {
+          "word": "quincena",
+          "translation": "fortnight",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "hola",
+          "translation": "hello",
+          "example": "",
+          "type": "greeting"
+        },
+        {
+          "word": "buenos días",
+          "translation": "good morning",
+          "example": "",
+          "type": "greeting"
+        },
+        {
+          "word": "profesor",
+          "translation": "teacher",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "traductora",
+          "translation": "translator",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "secretario",
+          "translation": "secretary",
+          "example": "",
+          "type": "noun"
+        },
+        {
+          "word": "agencia de viajes",
+          "translation": "travel agency",
+          "example": "",
+          "type": "noun"
+        }
+      ],
+      "grammar": [
+        {
+          "rule": "verb LLAMARSE conjugation",
+          "forms": [
+            "yo me llamo",
+            "tú te llamas",
+            "él/ella se llama",
+            "nosotros nos llamamos",
+            "vosotros os llamáis",
+            "ellos se llaman"
+          ]
+        },
+        {
+          "rule": "verb TENER conjugation",
+          "forms": [
+            "yo tengo",
+            "tú tienes",
+            "ella tiene",
+            "nosotros tenemos",
+            "vosotros tenéis",
+            "ellos tienen"
+          ]
+        },
+        {
+          "rule": "verb SER conjugation",
+          "forms": [
+            "yo soy",
+            "tú eres",
+            "ella es",
+            "nosotros somos",
+            "vosotros sois",
+            "ellos son"
+          ]
+        }
+      ],
+      "homework": [
+        "Página 145: actividad 17",
+        "Página 145: actividad 18",
+        "Página 145: actividad 19",
+        "Página 145: actividad 20",
+        "Página 145: actividad 21",
+        "Página 145: actividad 22",
+        "Más ejercicios",
+        "Escucha el video otra vez determinando los datos personales de cada persona"
+      ],
+      "homework_pages": {
+        "145": "17. Completa la tabla. \n(yo) \n(tú) \n(él/ ella, usted) \n(nosotros/ nosotras) \n(vosotros/ vosotras) \n(ellos/as, ustedes) \nSER \nsomos \nsois \nson \n18. Completa con la forma correcta de los \nverbos ser, tener o llamarse. \na. \n• Hola, \n......................... Maia. \nde \nEstados Unidos. \n0 \nHola, Maia, un p lacer. Yo .................................... Darte \ny ella, Svenja . ................................... alemanas. \nb. \n• Laurie, l .. \nmóvil? \n0 \nSí, es el 654987321 . \nc. \n• Armin y yo .................................. 25 años. ¿Y tú? \n0 \nYo \n30. \nd. \n• ·Vosotros de dónde \n? \n¿ \n.............................. . \no \nfranceses. Yo \n................. \n. .................. ················ \nde París y ella .................................... de Lyon. \ne. \n• ¿Cómo . ............................. . ? \no .................................... Federico. ¿Y t ú? \nf. \n• ¿Qué edad ............................... Lea? \no 41 años. \nTENER \ntengo \ntiene \ntenéis \nLLAMARSE \nse llama \nnos llamamos \n19. Fíjate en este DNI. ¿Oué palabras \npuedes deducir? \nDOCUMENTG>:NA.GJ.QNAL DE IDENTIDAD \n-\n..... \n-\n-\nPRldEA Al'EJ.UOO/ Pll!MeR COGtlO&I \nMORENO \n$1;G4JNDOAPELL00Jt.LG.OII COOJii()M \nRODRíGUE Z \nNOUIIRE ¡ tlOU' \nMIGUEL \nSEXOISUI MACIONWOAOJ N,t,ClOH4UTAT \nM \nESP \nFECltA OE NQ,18fl'U/ DATA I)( IU,IX(ut\\T \n25 01 1964 \n,..., \nAPY 103592 \n,'At.100 NA$fA l VAi.JO FIi$ \n11 03 2024 \nTJ \nDNI NUM. \n525452 SOF \n/.\" \n- ~ \n--\n1 \n20. Contesta estas preguntas sobre el DNI \nde la actividad 19. \na. ¿Cómo se llama esta persona? \nb. ¿De dónde es? \nc. ¿Oué edad tiene? \nciento cuarenta y cinco 145"
+      },
+      "useful_phrases": [
+        "¿cómo te llamas?",
+        "Me llamo...",
+        "¿cómo se llaman?",
+        "Se llaman...",
+        "¿cuántos años tienes?",
+        "Tengo... años",
+        "¿a qué te dedicas?",
+        "Me dedico a...",
+        "¿dónde trabajas?",
+        "Trabajo en..."
+      ],
+      "next_session_prep": [
+        "Review verb conjugations",
+        "Practice nationality vocabulary"
+      ]
     }
   ],
   "all_vocab": [
@@ -445,6 +723,244 @@
       "example": "Trabaja de científico",
       "type": "verb",
       "session": "CLASE.3"
+    },
+    {
+      "word": "gente",
+      "translation": "people",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "general",
+      "translation": "general",
+      "example": "",
+      "type": "adjective",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "girar",
+      "translation": "to turn",
+      "example": "",
+      "type": "verb",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "gigante",
+      "translation": "giant",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "gimnasio",
+      "translation": "gym",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "gemelo",
+      "translation": "twin",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "gesto",
+      "translation": "gesture",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "gitano",
+      "translation": "gypsy",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "gato",
+      "translation": "cat",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "grande",
+      "translation": "big",
+      "example": "",
+      "type": "adjective",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "goma",
+      "translation": "eraser",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "gol",
+      "translation": "goal",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "gusto",
+      "translation": "taste",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "guitarra",
+      "translation": "guitar",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "gobierno",
+      "translation": "government",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "casa",
+      "translation": "house",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "coche",
+      "translation": "car",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "cama",
+      "translation": "bed",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "cosa",
+      "translation": "thing",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "curso",
+      "translation": "course",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "cubo",
+      "translation": "cube",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "cultura",
+      "translation": "culture",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "queso",
+      "translation": "cheese",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "quiero",
+      "translation": "I want",
+      "example": "",
+      "type": "verb",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "quién",
+      "translation": "who",
+      "example": "",
+      "type": "pronoun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "química",
+      "translation": "chemistry",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "quitar",
+      "translation": "to remove",
+      "example": "",
+      "type": "verb",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "quincena",
+      "translation": "fortnight",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "hola",
+      "translation": "hello",
+      "example": "",
+      "type": "greeting",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "buenos días",
+      "translation": "good morning",
+      "example": "",
+      "type": "greeting",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "profesor",
+      "translation": "teacher",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "traductora",
+      "translation": "translator",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "secretario",
+      "translation": "secretary",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
+    },
+    {
+      "word": "agencia de viajes",
+      "translation": "travel agency",
+      "example": "",
+      "type": "noun",
+      "session": "CLASE.4"
     }
   ],
   "all_grammar": [
@@ -493,8 +1009,40 @@
     {
       "task": "Página 142: actividad 5/6/7",
       "session": "CLASE.3"
+    },
+    {
+      "task": "Página 145: actividad 17",
+      "session": "CLASE.4"
+    },
+    {
+      "task": "Página 145: actividad 18",
+      "session": "CLASE.4"
+    },
+    {
+      "task": "Página 145: actividad 19",
+      "session": "CLASE.4"
+    },
+    {
+      "task": "Página 145: actividad 20",
+      "session": "CLASE.4"
+    },
+    {
+      "task": "Página 145: actividad 21",
+      "session": "CLASE.4"
+    },
+    {
+      "task": "Página 145: actividad 22",
+      "session": "CLASE.4"
+    },
+    {
+      "task": "Más ejercicios",
+      "session": "CLASE.4"
+    },
+    {
+      "task": "Escucha el video otra vez determinando los datos personales de cada persona",
+      "session": "CLASE.4"
     }
   ],
-  "last_session": "CLASE.3",
-  "last_updated": "2026-04-18 21:24"
+  "last_session": "CLASE.4",
+  "last_updated": "2026-04-21 06:33"
 }
