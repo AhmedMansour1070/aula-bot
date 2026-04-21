@@ -253,212 +253,194 @@
       "date": "2026-04-21",
       "topics": [
         "Introducciones personales",
-        "Verbos: llamarse, tener, ser"
+        "Verbos LLAMARSE, SER, TENER, TRABAJAR"
       ],
       "vocabulary": [
         {
           "word": "gente",
           "translation": "people",
-          "example": "",
+          "example": "Hay mucha gente en la calle.",
           "type": "noun"
         },
         {
           "word": "general",
           "translation": "general",
-          "example": "",
+          "example": "El general es un hombre importante.",
           "type": "adjective"
         },
         {
           "word": "girar",
           "translation": "to turn",
-          "example": "",
+          "example": "Girar a la izquierda para llegar al parque.",
           "type": "verb"
         },
         {
           "word": "gigante",
           "translation": "giant",
-          "example": "",
+          "example": "El gigante es muy alto y fuerte.",
           "type": "noun"
         },
         {
           "word": "gimnasio",
           "translation": "gym",
-          "example": "",
+          "example": "Voy al gimnasio para hacer ejercicio.",
           "type": "noun"
         },
         {
           "word": "gemelo",
           "translation": "twin",
-          "example": "",
+          "example": "Mi hermano gemelo se llama Juan.",
           "type": "noun"
         },
         {
           "word": "gesto",
           "translation": "gesture",
-          "example": "",
+          "example": "Hice un gesto amable hacia ella.",
           "type": "noun"
         },
         {
           "word": "gitano",
           "translation": "gypsy",
-          "example": "",
+          "example": "La música gitana es muy emocional.",
           "type": "noun"
         },
         {
           "word": "gato",
           "translation": "cat",
-          "example": "",
+          "example": "Mi gato se llama Minino.",
           "type": "noun"
         },
         {
           "word": "grande",
           "translation": "big",
-          "example": "",
+          "example": "La casa es grande y bonita.",
           "type": "adjective"
         },
         {
           "word": "goma",
           "translation": "eraser",
-          "example": "",
+          "example": "Necesito una goma para borrar.",
           "type": "noun"
         },
         {
           "word": "gol",
           "translation": "goal",
-          "example": "",
+          "example": "Marcó un gol en el partido de fútbol.",
           "type": "noun"
         },
         {
           "word": "gusto",
-          "translation": "taste",
-          "example": "",
+          "translation": "pleasure",
+          "example": "Me da gusto verte de nuevo.",
           "type": "noun"
         },
         {
           "word": "guitarra",
           "translation": "guitar",
-          "example": "",
+          "example": "Toco la guitarra en mi tiempo libre.",
           "type": "noun"
         },
         {
           "word": "gobierno",
           "translation": "government",
-          "example": "",
+          "example": "El gobierno ayuda a los ciudadanos.",
           "type": "noun"
         },
         {
           "word": "casa",
           "translation": "house",
-          "example": "",
+          "example": "Vivo en una casa en el campo.",
           "type": "noun"
         },
         {
           "word": "coche",
           "translation": "car",
-          "example": "",
+          "example": "Mi coche es rojo y nuevo.",
           "type": "noun"
         },
         {
           "word": "cama",
           "translation": "bed",
-          "example": "",
+          "example": "Me gusta dormir en mi cama.",
           "type": "noun"
         },
         {
           "word": "cosa",
           "translation": "thing",
-          "example": "",
+          "example": "No sé qué cosa elegir.",
           "type": "noun"
         },
         {
           "word": "curso",
           "translation": "course",
-          "example": "",
+          "example": "Estoy estudiando un curso de español.",
           "type": "noun"
         },
         {
           "word": "cubo",
           "translation": "cube",
-          "example": "",
+          "example": "El cubo es una forma geométrica.",
           "type": "noun"
         },
         {
           "word": "cultura",
           "translation": "culture",
-          "example": "",
+          "example": "La cultura española es muy rica.",
           "type": "noun"
         },
         {
           "word": "queso",
           "translation": "cheese",
-          "example": "",
+          "example": "Me encanta el queso manchego.",
           "type": "noun"
         },
         {
           "word": "quiero",
           "translation": "I want",
-          "example": "",
+          "example": "Quiero ir al cine esta noche.",
           "type": "verb"
         },
         {
           "word": "quién",
           "translation": "who",
-          "example": "",
+          "example": "¿Quién eres tú!",
           "type": "pronoun"
         },
         {
           "word": "química",
           "translation": "chemistry",
-          "example": "",
+          "example": "La química es una materia difícil.",
           "type": "noun"
         },
         {
           "word": "quitar",
           "translation": "to remove",
-          "example": "",
+          "example": "Quita el libro de la mesa.",
           "type": "verb"
         },
         {
           "word": "quincena",
           "translation": "fortnight",
-          "example": "",
+          "example": "Me pagan cada quincena.",
           "type": "noun"
         },
         {
           "word": "hola",
           "translation": "hello",
-          "example": "",
+          "example": "Hola, ¿cómo estás?",
           "type": "greeting"
         },
         {
           "word": "buenos días",
           "translation": "good morning",
-          "example": "",
+          "example": "Buenos días, señor.",
           "type": "greeting"
         },
         {
-          "word": "profesor",
-          "translation": "teacher",
-          "example": "",
-          "type": "noun"
-        },
-        {
-          "word": "traductora",
-          "translation": "translator",
-          "example": "",
-          "type": "noun"
-        },
-        {
-          "word": "secretario",
-          "translation": "secretary",
-          "example": "",
-          "type": "noun"
-        },
-        {
-          "word": "agencia de viajes",
-          "translation": "travel agency",
-          "example": "",
-          "type": "noun"
+          "word": "mucho gusto",
+          "translation": "nice to meet you",
+          "example": "Mucho gusto, encantado de conocerte.",
+          "type": "phrase"
         }
       ],
       "grammar": [
@@ -474,25 +456,36 @@
           ]
         },
         {
+          "rule": "verb SER conjugation",
+          "forms": [
+            "yo soy",
+            "tú eres",
+            "él/ella es",
+            "nosotros somos",
+            "vosotros sois",
+            "ellos son"
+          ]
+        },
+        {
           "rule": "verb TENER conjugation",
           "forms": [
             "yo tengo",
             "tú tienes",
-            "ella tiene",
+            "él/ella tiene",
             "nosotros tenemos",
             "vosotros tenéis",
             "ellos tienen"
           ]
         },
         {
-          "rule": "verb SER conjugation",
+          "rule": "verb TRABAJAR conjugation",
           "forms": [
-            "yo soy",
-            "tú eres",
-            "ella es",
-            "nosotros somos",
-            "vosotros sois",
-            "ellos son"
+            "yo trabajo",
+            "tú trabajas",
+            "él/ella trabaja",
+            "nosotros trabajamos",
+            "vosotros trabajáis",
+            "ellos trabajan"
           ]
         }
       ],
@@ -512,8 +505,6 @@
       "useful_phrases": [
         "¿cómo te llamas?",
         "Me llamo...",
-        "¿cómo se llaman?",
-        "Se llaman...",
         "¿cuántos años tienes?",
         "Tengo... años",
         "¿a qué te dedicas?",
@@ -523,7 +514,8 @@
       ],
       "next_session_prep": [
         "Review verb conjugations",
-        "Practice nationality vocabulary"
+        "Practice nationality vocabulary",
+        "Use online resources: https://www.profedeele.es/actividad/dar-pedir-informacion-personal/, https://www.youtube.com/watch?v=Bj-fAlHK2rM"
       ]
     }
   ],
@@ -810,7 +802,7 @@
     },
     {
       "word": "gusto",
-      "translation": "taste",
+      "translation": "pleasure",
       "example": "",
       "type": "noun",
       "session": "CLASE.4"
@@ -935,31 +927,10 @@
       "session": "CLASE.4"
     },
     {
-      "word": "profesor",
-      "translation": "teacher",
+      "word": "mucho gusto",
+      "translation": "nice to meet you",
       "example": "",
-      "type": "noun",
-      "session": "CLASE.4"
-    },
-    {
-      "word": "traductora",
-      "translation": "translator",
-      "example": "",
-      "type": "noun",
-      "session": "CLASE.4"
-    },
-    {
-      "word": "secretario",
-      "translation": "secretary",
-      "example": "",
-      "type": "noun",
-      "session": "CLASE.4"
-    },
-    {
-      "word": "agencia de viajes",
-      "translation": "travel agency",
-      "example": "",
-      "type": "noun",
+      "type": "phrase",
       "session": "CLASE.4"
     }
   ],
@@ -1044,5 +1015,5 @@
     }
   ],
   "last_session": "CLASE.4",
-  "last_updated": "2026-04-21 06:33"
+  "last_updated": "2026-04-21 06:38"
 }
