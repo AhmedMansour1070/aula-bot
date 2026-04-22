@@ -517,6 +517,142 @@
         "Practice nationality vocabulary",
         "Use online resources: https://www.profedeele.es/actividad/dar-pedir-informacion-personal/, https://www.youtube.com/watch?v=Bj-fAlHK2rM"
       ]
+    },
+    {
+      "session": "CLASE.5",
+      "date": "2026-04-23",
+      "topics": [
+        "IR",
+        "SALIR",
+        "VER",
+        "JUGAR",
+        "APRENDER",
+        "QUERER"
+      ],
+      "vocabulary": [
+        {
+          "word": "Ir",
+          "translation": "to go",
+          "example": "Ir al cine",
+          "type": "verb"
+        },
+        {
+          "word": "Salir",
+          "translation": "to go out",
+          "example": "Salir a cenar",
+          "type": "verb"
+        },
+        {
+          "word": "Ver",
+          "translation": "to watch",
+          "example": "Ver la tele",
+          "type": "verb"
+        },
+        {
+          "word": "Jugar",
+          "translation": "to play",
+          "example": "Jugar al fútbol",
+          "type": "verb"
+        },
+        {
+          "word": "Aprender",
+          "translation": "to learn",
+          "example": "Aprender a tocar la guitarra",
+          "type": "verb"
+        },
+        {
+          "word": "Querer",
+          "translation": "to want",
+          "example": "Quiero viajar a España",
+          "type": "verb"
+        },
+        {
+          "word": "Excursión",
+          "translation": "excursion",
+          "example": "Ir de excursión",
+          "type": "noun"
+        },
+        {
+          "word": "Compras",
+          "translation": "shopping",
+          "example": "Ir de compras",
+          "type": "noun"
+        },
+        {
+          "word": "Playa",
+          "translation": "beach",
+          "example": "Ir a la playa",
+          "type": "noun"
+        },
+        {
+          "word": "Cine",
+          "translation": "movies",
+          "example": "Ir al cine",
+          "type": "noun"
+        },
+        {
+          "word": "Teatro",
+          "translation": "theater",
+          "example": "Ir al teatro",
+          "type": "noun"
+        },
+        {
+          "word": "Finde",
+          "translation": "weekend",
+          "example": "En el fin de semana",
+          "type": "noun"
+        }
+      ],
+      "grammar": [
+        {
+          "rule": "IR + a + lugar",
+          "forms": [
+            "Ir al cine",
+            "Ir al parque",
+            "Ir a la playa"
+          ]
+        },
+        {
+          "rule": "IR + de + actividad",
+          "forms": [
+            "Ir de compras",
+            "Ir de paseo",
+            "Ir de viaje"
+          ]
+        },
+        {
+          "rule": "A + el = al",
+          "forms": [
+            "al cine",
+            "al teatro",
+            "al parque"
+          ]
+        },
+        {
+          "rule": "Querer conjugation",
+          "forms": [
+            "Yo quiero",
+            "Tú quieres",
+            "Él/ella/usted quiere"
+          ]
+        }
+      ],
+      "homework": [
+        "Escribe 5 cosas que quieres hacer este fin de semana",
+        "Escribe 10 cosas que tú quieres hacer o no quieres hacer en el futuro",
+        "Graba un audio (presentación de ti y habla sobre tus intenciones) y envíamelo por WhatsApp",
+        "Más ejercicios página 148: actividad 1/2/4/5/6"
+      ],
+      "homework_pages": {
+        "148": "Unidad 1 \n➔ \npág. 141 \nUnidad 2 \n➔ \npág. 148 \nUnidad 3 \n➔ \npág. 155 \nUnidad 4 \n➔ \npág. 162 \nUnidad 5 \n➔ \npág. 169 \nUnidad 6 \n➔ \npág. 176 \nUnidad 7 \n➔ \npág. 183 \nUnidad 8 \n➔ \npág. 190 \nUnidad 9 \n➔ \npág. 197 \nEste es tu cuaderno de ejercicios. En él encontrarás actividades dise-\nñadas para fijar y entender mejor cuestiones gramaticales y léxicas. \nEstos ejercicios pueden realizarse individualmente, pero también los \npuede usar el/ la docente en clase cuando considere oportuno reforzar \nun determinado aspecto. \nTambién puede resultar interesante hacer estas actividades con otras \npersonas de la clase. Piensa que no solo aprendemos cosas con el pro-\nfesor o la profesora; en muchas ocasiones, reflexionar con otro/a estu-\ndiante sobre cuestiones gramaticales te puede ayudar mucho."
+      },
+      "useful_phrases": [
+        "¿Quieres salir conmigo?",
+        "Quiero viajar a España",
+        "Me llamo Juan",
+        "En el fin de semana no tengo trabajo"
+      ],
+      "next_session_prep": []
     }
   ],
   "all_vocab": [
@@ -719,219 +855,303 @@
     {
       "word": "gente",
       "translation": "people",
-      "example": "",
+      "example": "Hay mucha gente en la calle.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "general",
       "translation": "general",
-      "example": "",
+      "example": "El general es un hombre importante.",
       "type": "adjective",
       "session": "CLASE.4"
     },
     {
       "word": "girar",
       "translation": "to turn",
-      "example": "",
+      "example": "Girar a la izquierda para llegar al parque.",
       "type": "verb",
       "session": "CLASE.4"
     },
     {
       "word": "gigante",
       "translation": "giant",
-      "example": "",
+      "example": "El gigante es muy alto y fuerte.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "gimnasio",
       "translation": "gym",
-      "example": "",
+      "example": "Voy al gimnasio para hacer ejercicio.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "gemelo",
       "translation": "twin",
-      "example": "",
+      "example": "Mi hermano gemelo se llama Juan.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "gesto",
       "translation": "gesture",
-      "example": "",
+      "example": "Hice un gesto amable hacia ella.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "gitano",
       "translation": "gypsy",
-      "example": "",
+      "example": "La música gitana es muy emocional.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "gato",
       "translation": "cat",
-      "example": "",
+      "example": "Mi gato se llama Minino.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "grande",
       "translation": "big",
-      "example": "",
+      "example": "La casa es grande y bonita.",
       "type": "adjective",
       "session": "CLASE.4"
     },
     {
       "word": "goma",
       "translation": "eraser",
-      "example": "",
+      "example": "Necesito una goma para borrar.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "gol",
       "translation": "goal",
-      "example": "",
+      "example": "Marcó un gol en el partido de fútbol.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "gusto",
       "translation": "pleasure",
-      "example": "",
+      "example": "Me da gusto verte de nuevo.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "guitarra",
       "translation": "guitar",
-      "example": "",
+      "example": "Toco la guitarra en mi tiempo libre.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "gobierno",
       "translation": "government",
-      "example": "",
+      "example": "El gobierno ayuda a los ciudadanos.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "casa",
       "translation": "house",
-      "example": "",
+      "example": "Vivo en una casa en el campo.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "coche",
       "translation": "car",
-      "example": "",
+      "example": "Mi coche es rojo y nuevo.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "cama",
       "translation": "bed",
-      "example": "",
+      "example": "Me gusta dormir en mi cama.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "cosa",
       "translation": "thing",
-      "example": "",
+      "example": "No sé qué cosa elegir.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "curso",
       "translation": "course",
-      "example": "",
+      "example": "Estoy estudiando un curso de español.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "cubo",
       "translation": "cube",
-      "example": "",
+      "example": "El cubo es una forma geométrica.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "cultura",
       "translation": "culture",
-      "example": "",
+      "example": "La cultura española es muy rica.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "queso",
       "translation": "cheese",
-      "example": "",
+      "example": "Me encanta el queso manchego.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "quiero",
       "translation": "I want",
-      "example": "",
+      "example": "Quiero ir al cine esta noche.",
       "type": "verb",
       "session": "CLASE.4"
     },
     {
       "word": "quién",
       "translation": "who",
-      "example": "",
+      "example": "¿Quién eres tú!",
       "type": "pronoun",
       "session": "CLASE.4"
     },
     {
       "word": "química",
       "translation": "chemistry",
-      "example": "",
+      "example": "La química es una materia difícil.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "quitar",
       "translation": "to remove",
-      "example": "",
+      "example": "Quita el libro de la mesa.",
       "type": "verb",
       "session": "CLASE.4"
     },
     {
       "word": "quincena",
       "translation": "fortnight",
-      "example": "",
+      "example": "Me pagan cada quincena.",
       "type": "noun",
       "session": "CLASE.4"
     },
     {
       "word": "hola",
       "translation": "hello",
-      "example": "",
+      "example": "Hola, ¿cómo estás?",
       "type": "greeting",
       "session": "CLASE.4"
     },
     {
       "word": "buenos días",
       "translation": "good morning",
-      "example": "",
+      "example": "Buenos días, señor.",
       "type": "greeting",
       "session": "CLASE.4"
     },
     {
       "word": "mucho gusto",
       "translation": "nice to meet you",
-      "example": "",
+      "example": "Mucho gusto, encantado de conocerte.",
       "type": "phrase",
       "session": "CLASE.4"
+    },
+    {
+      "word": "Ir",
+      "translation": "to go",
+      "example": "Ir al cine",
+      "type": "verb",
+      "session": "CLASE.5"
+    },
+    {
+      "word": "Salir",
+      "translation": "to go out",
+      "example": "Salir a cenar",
+      "type": "verb",
+      "session": "CLASE.5"
+    },
+    {
+      "word": "Ver",
+      "translation": "to watch",
+      "example": "Ver la tele",
+      "type": "verb",
+      "session": "CLASE.5"
+    },
+    {
+      "word": "Jugar",
+      "translation": "to play",
+      "example": "Jugar al fútbol",
+      "type": "verb",
+      "session": "CLASE.5"
+    },
+    {
+      "word": "Aprender",
+      "translation": "to learn",
+      "example": "Aprender a tocar la guitarra",
+      "type": "verb",
+      "session": "CLASE.5"
+    },
+    {
+      "word": "Querer",
+      "translation": "to want",
+      "example": "Quiero viajar a España",
+      "type": "verb",
+      "session": "CLASE.5"
+    },
+    {
+      "word": "Excursión",
+      "translation": "excursion",
+      "example": "Ir de excursión",
+      "type": "noun",
+      "session": "CLASE.5"
+    },
+    {
+      "word": "Compras",
+      "translation": "shopping",
+      "example": "Ir de compras",
+      "type": "noun",
+      "session": "CLASE.5"
+    },
+    {
+      "word": "Playa",
+      "translation": "beach",
+      "example": "Ir a la playa",
+      "type": "noun",
+      "session": "CLASE.5"
+    },
+    {
+      "word": "Cine",
+      "translation": "movies",
+      "example": "Ir al cine",
+      "type": "noun",
+      "session": "CLASE.5"
+    },
+    {
+      "word": "Teatro",
+      "translation": "theater",
+      "example": "Ir al teatro",
+      "type": "noun",
+      "session": "CLASE.5"
+    },
+    {
+      "word": "Finde",
+      "translation": "weekend",
+      "example": "En el fin de semana",
+      "type": "noun",
+      "session": "CLASE.5"
     }
   ],
   "all_grammar": [
@@ -970,6 +1190,42 @@
         "trabaja"
       ],
       "session": "CLASE.3"
+    },
+    {
+      "rule": "IR + a + lugar",
+      "forms": [
+        "Ir al cine",
+        "Ir al parque",
+        "Ir a la playa"
+      ],
+      "session": "CLASE.5"
+    },
+    {
+      "rule": "IR + de + actividad",
+      "forms": [
+        "Ir de compras",
+        "Ir de paseo",
+        "Ir de viaje"
+      ],
+      "session": "CLASE.5"
+    },
+    {
+      "rule": "A + el = al",
+      "forms": [
+        "al cine",
+        "al teatro",
+        "al parque"
+      ],
+      "session": "CLASE.5"
+    },
+    {
+      "rule": "Querer conjugation",
+      "forms": [
+        "Yo quiero",
+        "Tú quieres",
+        "Él/ella/usted quiere"
+      ],
+      "session": "CLASE.5"
     }
   ],
   "all_homework": [
@@ -1012,8 +1268,24 @@
     {
       "task": "Escucha el video otra vez determinando los datos personales de cada persona",
       "session": "CLASE.4"
+    },
+    {
+      "task": "Escribe 5 cosas que quieres hacer este fin de semana",
+      "session": "CLASE.5"
+    },
+    {
+      "task": "Escribe 10 cosas que tú quieres hacer o no quieres hacer en el futuro",
+      "session": "CLASE.5"
+    },
+    {
+      "task": "Graba un audio (presentación de ti y habla sobre tus intenciones) y envíamelo por WhatsApp",
+      "session": "CLASE.5"
+    },
+    {
+      "task": "Más ejercicios página 148: actividad 1/2/4/5/6",
+      "session": "CLASE.5"
     }
   ],
-  "last_session": "CLASE.4",
-  "last_updated": "2026-04-21 06:38"
+  "last_session": "CLASE.5",
+  "last_updated": "2026-04-23 00:20"
 }
