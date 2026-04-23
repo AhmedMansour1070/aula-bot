@@ -1,3 +1,4 @@
 py-cord==2.6.1
 pytz==2024.1
 requests==2.31.0
+pymupdf==1.24.3

@@ -10,6 +10,7 @@ import urllib.error
 import requests
 import discord
 import pytz
+import fitz  # pymupdf
 
 # --- Logging ---
 logging.basicConfig(level=logging.INFO, format="%(asctime)s [%(levelname)s] %(message)s")
@@ -39,7 +40,183 @@ FEATURE_CHANNELS = {
 APPS_SCRIPT_URL = "https://script.google.com/macros/s/AKfycbzOAOdJRzhmDqSMEtBclPgw9nDLrs-sqxzIyjApRvOM8QoWYNSlcXABhXRgVStusK_iRA/exec"
 APPS_SCRIPT_KEY = "aulabot2026"
 
+DAILY_LIMIT      = 25
+USAGE_FILE       = "usage.json"
+STREAKS_FILE     = "streaks.json"
+ADMIN_IDS        = set(int(x) for x in os.environ.get("ADMIN_IDS", "").split(",") if x.strip())
+STREAKS_CHANNEL  = "streaks"
+
+TEXTBOOK_LFS_URL = "https://media.githubusercontent.com/media/AhmedMansour1070/aula-bot/main/Aula%20Internacional%20Plus%201%20(A1).pdf"
+TEXTBOOK_PATH    = "textbook.pdf"
+
 conversation_histories = {}
+study_sessions = {}  # user_id -> {pages: [...], current: 0, history: []}
+
+
+# ── Textbook PDF ─────────────────────────────────────────────────────────────
+def ensure_textbook():
+    if os.path.exists(TEXTBOOK_PATH):
+        return True
+    log.info("Downloading textbook PDF from GitHub LFS...")
+    try:
+        resp = requests.get(TEXTBOOK_LFS_URL, timeout=60, stream=True)
+        resp.raise_for_status()
+        with open(TEXTBOOK_PATH, "wb") as f:
+            for chunk in resp.iter_content(chunk_size=8192):
+                f.write(chunk)
+        log.info("Textbook downloaded (%.1f MB).", os.path.getsize(TEXTBOOK_PATH) / 1e6)
+        return True
+    except Exception as e:
+        log.error("Failed to download textbook: %s", e)
+        return False
+
+
+def extract_pages(start: int, end: int) -> dict[int, str]:
+    """Extract text from printed page numbers start–end. Returns {page_num: text}."""
+    doc = fitz.open(TEXTBOOK_PATH)
+    results = {}
+    page_number_pattern = __import__("re").compile(r'\b(' + '|'.join(str(p) for p in range(start, end + 1)) + r')\b')
+
+    for pdf_page in doc:
+        text = pdf_page.get_text()
+        # Check last 150 chars for printed page number
+        tail = text[-150:]
+        match = page_number_pattern.search(tail)
+        if match:
+            pnum = int(match.group(1))
+            if pnum not in results:
+                results[pnum] = text.strip()
+    doc.close()
+    return results
+
+
+# ── Usage tracking ───────────────────────────────────────────────────────────
+def load_usage():
+    try:
+        with open(USAGE_FILE, "r") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def save_usage(data):
+    with open(USAGE_FILE, "w") as f:
+        json.dump(data, f)
+
+
+def load_streaks():
+    try:
+        with open(STREAKS_FILE, "r") as f:
+            return json.load(f)
+    except Exception:
+        return {}
+
+
+def save_streaks(data):
+    with open(STREAKS_FILE, "w") as f:
+        json.dump(data, f)
+
+
+def record_practice(user_id: int, name: str):
+    """Record that a user practiced today and update their streak."""
+    today = datetime.datetime.now(CAIRO_TZ).strftime("%Y-%m-%d")
+    yesterday = (datetime.datetime.now(CAIRO_TZ) - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+    data = load_streaks()
+    key = str(user_id)
+    entry = data.get(key, {"name": name, "streak": 0, "last_date": "", "best_streak": 0})
+    entry["name"] = name
+
+    if entry["last_date"] == today:
+        # Already recorded today, nothing to change
+        data[key] = entry
+        save_streaks(data)
+        return
+
+    if entry["last_date"] == yesterday:
+        entry["streak"] += 1
+    else:
+        entry["streak"] = 1  # reset streak
+
+    entry["last_date"] = today
+    entry["best_streak"] = max(entry.get("best_streak", 0), entry["streak"])
+    data[key] = entry
+    save_streaks(data)
+
+
+def get_streak(user_id: int) -> int:
+    today = datetime.datetime.now(CAIRO_TZ).strftime("%Y-%m-%d")
+    yesterday = (datetime.datetime.now(CAIRO_TZ) - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+    data = load_streaks()
+    entry = data.get(str(user_id), {})
+    if entry.get("last_date") in (today, yesterday):
+        return entry.get("streak", 0)
+    return 0
+
+
+def check_and_increment(user_id: int) -> tuple[bool, int]:
+    """Returns (allowed, count_after_increment). Resets if date changed."""
+    today = datetime.datetime.now(CAIRO_TZ).strftime("%Y-%m-%d")
+    data = load_usage()
+    key = str(user_id)
+    entry = data.get(key, {})
+
+    if entry.get("date") != today:
+        entry = {"date": today, "count": 0, "name": entry.get("name", "")}
+
+    if entry["count"] >= DAILY_LIMIT:
+        save_usage(data)
+        return False, entry["count"]
+
+    entry["count"] += 1
+    data[key] = entry
+    save_usage(data)
+    return True, entry["count"]
+
+
+def record_username(user_id: int, name: str):
+    data = load_usage()
+    key = str(user_id)
+    if key in data:
+        data[key]["name"] = name
+        save_usage(data)
+
+
+def build_streak_board() -> str:
+    data = load_streaks()
+    today = datetime.datetime.now(CAIRO_TZ).strftime("%Y-%m-%d")
+    yesterday = (datetime.datetime.now(CAIRO_TZ) - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+
+    if not data:
+        return "🔥 **Streak Board** — No streaks yet. Start practicing!\n"
+
+    entries = []
+    for uid, entry in data.items():
+        last = entry.get("last_date", "")
+        streak = entry.get("streak", 0) if last in (today, yesterday) else 0
+        best = entry.get("best_streak", 0)
+        entries.append((entry.get("name", f"User {uid}"), streak, best))
+
+    entries.sort(key=lambda x: x[1], reverse=True)
+
+    lines = ["🔥 **Streak Board** — Keep the flame alive!\n", "```"]
+    lines.append(f"{'Name':<20} {'Streak':<10} {'Best':<8} {'Visual'}")
+    lines.append("─" * 55)
+    for name, streak, best in entries:
+        if streak >= 30:
+            flame = "🏆"
+        elif streak >= 14:
+            flame = "🔥🔥🔥"
+        elif streak >= 7:
+            flame = "🔥🔥"
+        elif streak >= 1:
+            flame = "🔥"
+        else:
+            flame = "💤"
+        fire_bar = "█" * min(streak, 20) + ("░" * (20 - min(streak, 20)))
+        lines.append(f"{name:<20} {str(streak) + ' days':<10} {str(best) + ' days':<8} {fire_bar} {flame}")
+    lines.append("```")
+    lines.append(f"_Updated: {today} • Practice in any AI channel to keep your streak!_")
+    return "\n".join(lines)
 
 
 # ── Context from GitHub ──────────────────────────────────────────────────────
@@ -243,6 +420,108 @@ LEARNED GRAMMAR:
     return call_claude(system, messages)
 
 
+# ── Study session ────────────────────────────────────────────────────────────
+async def handle_study_message(message):
+    user_id = message.author.id
+    session = study_sessions.get(user_id)
+    content = message.content.strip()
+
+    # End session
+    if content.lower() == "!stop":
+        study_sessions.pop(user_id, None)
+        await message.channel.send("📕 Study session ended. ¡Buen trabajo!")
+        return
+
+    # Start new session: !study 45-50
+    if content.lower().startswith("!study "):
+        parts = content[7:].strip().split("-")
+        if len(parts) != 2 or not all(p.strip().isdigit() for p in parts):
+            await message.channel.send("Usage: `!study 45-50`")
+            return
+        start, end = int(parts[0]), int(parts[1])
+        if end - start > 20:
+            await message.channel.send("⚠️ Maximum 20 pages per session. Try a smaller range.")
+            return
+
+        await message.channel.send("📖 Loading textbook pages... one moment.")
+        async with message.channel.typing():
+            if not ensure_textbook():
+                await message.channel.send("⚠️ Could not load the textbook. Try again later.")
+                return
+
+            pages = extract_pages(start, end)
+            if not pages:
+                await message.channel.send(f"⚠️ Could not find pages {start}–{end} in the textbook.")
+                return
+
+            sorted_pages = sorted(pages.items())
+            study_sessions[user_id] = {
+                "pages": sorted_pages,
+                "current": 0,
+                "history": []
+            }
+            session = study_sessions[user_id]
+
+    # Continue existing session
+    if not session:
+        return
+
+    pages = session["pages"]
+    idx = session["current"]
+
+    if idx >= len(pages):
+        study_sessions.pop(user_id, None)
+        await message.channel.send("🎉 You've finished all the pages! ¡Excelente trabajo! Type `!study X-Y` to start a new session.")
+        return
+
+    page_num, page_text = pages[idx]
+    history = session["history"]
+
+    # If this is the first message or moving to a new page, introduce the page
+    if not history or content.lower() in ("!next", "!study " + content[7:].strip()):
+        system = f"""You are an interactive Spanish tutor walking a student through their A1 textbook page by page.
+
+Current page ({page_num}) content:
+---
+{page_text[:3000]}
+---
+
+Your job for this page:
+1. Give a SHORT summary of what this page covers (2-3 sentences)
+2. Explain the key concept or vocabulary on this page in simple English
+3. Ask ONE question to check understanding — could be a fill-in-the-blank, translation, or simple question
+4. Tell the student they can answer, type !next to move on, or !stop to end
+
+Keep it conversational and encouraging. This is page {idx + 1} of {len(pages)}."""
+        history = [{"role": "user", "content": f"Let's study page {page_num}."}]
+    else:
+        # Student replied — give feedback and ask follow-up or prompt next page
+        system = f"""You are an interactive Spanish tutor. The student is studying page {page_num} of their A1 textbook.
+
+Page content:
+---
+{page_text[:3000]}
+---
+
+Rules:
+- Give feedback on their answer (correct/incorrect, explain why)
+- If correct: ask one more question OR tell them they can type !next to move to the next page
+- If incorrect: explain gently and give them another chance
+- Keep responses short and encouraging"""
+        history.append({"role": "user", "content": content})
+
+    async with message.channel.typing():
+        reply = call_claude(system, history, max_tokens=600)
+        history.append({"role": "assistant", "content": reply})
+        session["history"] = history[-10:]  # keep last 10 turns
+
+        # Auto-advance if student types !next
+        if content.lower() == "!next":
+            session["current"] += 1
+
+        await message.channel.send(reply)
+
+
 # ── Daily vocab post ─────────────────────────────────────────────────────────
 def format_word(row, is_review=False):
     label = "🔁 **Repaso**" if is_review else "🆕 **Palabra nueva**"
@@ -263,6 +542,41 @@ def format_daily_message(new_words, review_words):
         for row in review_words:
             lines += [format_word(row, True), "─" * 30]
     return "\n".join(lines)
+
+
+async def update_streak_board():
+    """Updates the streak board message in #streaks channel every day after the daily word post."""
+    await client.wait_until_ready()
+    while not client.is_closed():
+        now = datetime.datetime.now(CAIRO_TZ)
+        # Post streak board 1 minute after daily word (8:01 AM)
+        target = now.replace(hour=POST_HOUR, minute=POST_MINUTE + 1, second=0, microsecond=0)
+        if now >= target:
+            target += datetime.timedelta(days=1)
+        await asyncio.sleep((target - now).total_seconds())
+
+        try:
+            streaks_ch = discord.utils.get(client.get_all_channels(), name=STREAKS_CHANNEL)
+            if not streaks_ch:
+                log.warning("No #streaks channel found.")
+                await asyncio.sleep(60)
+                continue
+
+            board = build_streak_board()
+
+            # Find existing bot message to edit, otherwise post new
+            async for msg in streaks_ch.history(limit=20):
+                if msg.author == client.user and "Streak Board" in msg.content:
+                    await msg.edit(content=board)
+                    log.info("Streak board updated.")
+                    break
+            else:
+                await streaks_ch.send(board)
+                log.info("Streak board posted.")
+        except Exception as e:
+            log.error("Streak board error: %s", e)
+
+        await asyncio.sleep(60)
 
 
 async def post_daily_word():
@@ -409,6 +723,28 @@ async def on_member_join(member):
         )
 
         embed.add_field(
+            name="🔥 Streaks & Community",
+            value=(
+                "**#streaks** — Live leaderboard updated daily. Practice every day to keep your streak!\n"
+                "**#introductions** — Tell us who you are and why you're learning Spanish\n"
+                "**#progress-sharing** — Share your wins, no matter how small\n"
+                "**#questions** — Ask anything about Spanish"
+            ),
+            inline=False
+        )
+
+        embed.add_field(
+            name="⌨️ Commands",
+            value=(
+                "`!define <word>` — look up any Spanish word (or translate if not in bank)\n"
+                "`!addword <word>` — add a word to the class word bank\n"
+                "`!streak` — see your current practice streak\n"
+                "`!usage` — see how many AI messages you have left today"
+            ),
+            inline=False
+        )
+
+        embed.add_field(
             name="💡 Tips",
             value=(
                 "• The AI only knows what **you've studied** — no overwhelm\n"
@@ -436,6 +772,106 @@ async def on_message(message):
     if message.author.bot:
         return
 
+    # !usage — personal or admin overview
+    if message.content.strip().lower() in ("!usage", "!usage all"):
+        today = datetime.datetime.now(CAIRO_TZ).strftime("%Y-%m-%d")
+        data = load_usage()
+        show_all = message.content.strip().lower() == "!usage all"
+
+        if show_all:
+            if ADMIN_IDS and message.author.id not in ADMIN_IDS:
+                await message.channel.send("⛔ Only admins can see everyone's usage.")
+                return
+            if not data:
+                await message.channel.send("📊 No usage recorded yet.")
+                return
+            lines = ["📊 **Daily usage — today**\n"]
+            for uid, entry in data.items():
+                count = entry.get("count", 0) if entry.get("date") == today else 0
+                name = entry.get("name") or f"User {uid}"
+                bar = "█" * count + "░" * (DAILY_LIMIT - count)
+                lines.append(f"`{name:<20}` {bar} {count}/{DAILY_LIMIT}")
+            await message.channel.send("\n".join(lines))
+        else:
+            key = str(message.author.id)
+            entry = data.get(key, {})
+            count = entry.get("count", 0) if entry.get("date") == today else 0
+            remaining = DAILY_LIMIT - count
+            await message.channel.send(
+                f"📊 **Your usage today:** {count}/{DAILY_LIMIT} messages used  "
+                f"({remaining} remaining)"
+            )
+        return
+
+    # !study — interactive textbook study session
+    if message.content.strip().lower().startswith("!study") or (
+        message.author.id in study_sessions and not message.content.startswith("!")
+    ) or message.content.strip().lower() in ("!next", "!stop"):
+        await handle_study_message(message)
+        return
+
+    # !streak — show personal streak
+    if message.content.strip().lower() == "!streak":
+        today = datetime.datetime.now(CAIRO_TZ).strftime("%Y-%m-%d")
+        yesterday = (datetime.datetime.now(CAIRO_TZ) - datetime.timedelta(days=1)).strftime("%Y-%m-%d")
+        data = load_streaks()
+        entry = data.get(str(message.author.id), {})
+        streak = entry.get("streak", 0) if entry.get("last_date") in (today, yesterday) else 0
+        best = entry.get("best_streak", 0)
+        flames = "🔥" * min(streak, 10) if streak > 0 else "💤"
+        await message.channel.send(
+            f"**{message.author.display_name}'s streak**\n"
+            f"{flames}\n"
+            f"Current: **{streak} day{'s' if streak != 1 else ''}** | Best: **{best} day{'s' if best != 1 else ''}**"
+        )
+        return
+
+    # !define — look up a word in the bank, or translate if not found
+    if message.content.lower().startswith("!define "):
+        word = message.content[8:].strip()
+        context = get_course_context()
+        all_vocab = context.get("all_vocab", []) if context else []
+
+        # Search word bank
+        match = next((v for v in all_vocab if v["word"].lower() == word.lower()), None)
+
+        async with message.channel.typing():
+            if match:
+                await message.channel.send(
+                    f"📖 **{match['word']}**\n"
+                    f"🇬🇧 {match['translation']}\n"
+                    f"💬 _{match.get('example', 'No example available')}_\n"
+                    f"📚 From: {match.get('session', 'unknown')}"
+                )
+            else:
+                # Not in bank — ask Claude to translate + give examples
+                system = "You are a Spanish language assistant. Return ONLY valid JSON, no extra text."
+                prompt = f"""For the Spanish word or phrase "{word}", return this JSON:
+{{
+  "translation": "English translation",
+  "examples": [
+    "Simple A1 example sentence in Spanish using this word.",
+    "Another simple example sentence."
+  ]
+}}"""
+                try:
+                    result = call_claude(system, [{"role": "user", "content": prompt}], max_tokens=300)
+                    if "```" in result:
+                        result = result.split("```")[1]
+                        if result.startswith("json"):
+                            result = result[4:]
+                    word_data = json.loads(result.strip())
+                    examples = "\n".join(f"💬 _{ex}_" for ex in word_data.get("examples", []))
+                    await message.channel.send(
+                        f"📖 **{word}**\n"
+                        f"🇬🇧 {word_data['translation']}\n"
+                        f"{examples}\n"
+                        f"⚠️ _This word is not in your class word bank yet. Use `!addword {word}` to add it._"
+                    )
+                except Exception:
+                    await message.channel.send(f"⚠️ Could not look up `{word}`. Try again.")
+        return
+
     # !addword command — works in any channel
     if message.content.startswith("!addword"):
         context = get_course_context()
@@ -445,6 +881,17 @@ async def on_message(message):
     channel_name = message.channel.name
     feature = FEATURE_CHANNELS.get(channel_name)
     if not feature:
+        return
+
+    # Rate limit check + streak recording
+    record_username(message.author.id, message.author.display_name)
+    record_practice(message.author.id, message.author.display_name)
+    allowed, count = check_and_increment(message.author.id)
+    if not allowed:
+        await message.channel.send(
+            f"⛔ {message.author.mention} You've used all **{DAILY_LIMIT} messages** for today. "
+            f"Come back tomorrow! 🌙"
+        )
         return
 
     async with message.channel.typing():
@@ -466,6 +913,12 @@ async def on_message(message):
             for i in range(0, len(reply), 1900):
                 await message.channel.send(reply[i:i+1900])
 
+            # Warn when 3 messages remain
+            if DAILY_LIMIT - count == 3:
+                await message.channel.send(
+                    f"⚠️ {message.author.mention} Only **3 messages left** for today!"
+                )
+
         except Exception as e:
             log.error("Error handling message in %s: %s", channel_name, e)
             await message.channel.send("⚠️ Something went wrong. Try again in a moment.")
@@ -474,6 +927,7 @@ async def on_message(message):
 async def main():
     async with client:
         asyncio.get_event_loop().create_task(post_daily_word())
+        asyncio.get_event_loop().create_task(update_streak_board())
         await client.start(DISCORD_TOKEN)
 
 
