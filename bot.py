@@ -323,6 +323,7 @@ def call_claude(system_prompt, messages, max_tokens=1024):
 # ── Feature handlers ─────────────────────────────────────────────────────────
 async def handle_practice(message, context):
     user_id = message.author.id
+    username = message.author.display_name
     if user_id not in conversation_histories:
         conversation_histories[user_id] = []
 
@@ -333,10 +334,11 @@ async def handle_practice(message, context):
     grammar = build_grammar_context(context)
     last_session = context.get("last_session", "unknown") if context else "unknown"
 
-    system = f"""You are a friendly Spanish conversation partner for an A1-level student.
+    system = f"""You are a friendly Spanish conversation partner for an A1-level student named {username}.
 They are currently on {last_session} of their course.
 
 STRICT RULES:
+- Address the student by their name: {username}
 - ONLY use vocabulary and grammar structures the student has learned (listed below)
 - Keep sentences short and simple
 - If the student makes a grammar mistake, gently correct it in your reply
@@ -358,13 +360,15 @@ LEARNED GRAMMAR STRUCTURES:
 async def handle_homework(message, context):
     homework = build_homework_context(context)
     last_session = context.get("last_session", "unknown") if context else "unknown"
+    username = message.author.display_name
 
-    system = f"""You are a Spanish homework checker for an A1-level student on {last_session}.
+    system = f"""You are a Spanish homework checker for an A1-level student named {username} on {last_session}.
 
 The actual homework assigned was:
 {homework}
 
 Your job:
+- Address the student by their name: {username}
 - If the student pastes their answers, check them against the homework tasks above
 - For wrong answers: explain WHY it's wrong in simple English, give the correct answer
 - For correct answers: confirm and briefly explain the rule
@@ -378,8 +382,9 @@ Your job:
 async def handle_exercises(message, context):
     vocab = build_vocab_context(context)
     grammar = build_grammar_context(context)
+    username = message.author.display_name
 
-    system = f"""You are a Spanish exercise generator for an A1-level student.
+    system = f"""You are a Spanish exercise generator for an A1-level student named {username}.
 Generate exactly 10 exercises using ONLY the vocabulary and grammar below.
 Mix these types: fill-in-the-blank, translate to Spanish, translate to English, conjugate the verb.
 Format each exercise clearly numbered 1-10.
@@ -400,8 +405,9 @@ GRAMMAR STRUCTURES TO USE:
 async def handle_speaking(message, context):
     vocab = build_vocab_context(context)
     grammar = build_grammar_context(context)
+    username = message.author.display_name
 
-    system = f"""You are a Spanish speaking coach for an A1-level student.
+    system = f"""You are a Spanish speaking coach for an A1-level student named {username}.
 The student will write a Spanish sentence or paragraph.
 
 Your job:
