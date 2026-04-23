@@ -892,6 +892,46 @@ async def on_message(message):
         await handle_study_message(message)
         return
 
+    # !dele — post countdown immediately
+    if message.content.strip().lower() == "!dele":
+        DELE_DATE = datetime.date(2026, 11, 14)
+        today = datetime.datetime.now(CAIRO_TZ).date()
+        days_left = (DELE_DATE - today).days
+        total_days = (DELE_DATE - datetime.date(2026, 1, 1)).days
+        days_passed = total_days - days_left
+        progress = max(0, min(100, int((days_passed / total_days) * 100)))
+        bar_filled = int(progress / 5)
+        bar_empty = 20 - bar_filled
+        bar = "█" * bar_filled + "░" * bar_empty
+        weeks = days_left // 7
+        remaining_days = days_left % 7
+        if days_left > 60:
+            focus = "📖 Focus: Build vocabulary & master present tense"
+        elif days_left > 30:
+            focus = "✍️ Focus: Past tenses, writing practice & reading comprehension"
+        elif days_left > 14:
+            focus = "🎧 Focus: Listening exercises & speaking fluency"
+        elif days_left > 0:
+            focus = "🔥 Final sprint — practice full mock exams daily!"
+        else:
+            focus = "🎉 Exam day! ¡Buena suerte!"
+        await message.channel.send(
+            f"📅 **DELE Exam Countdown**\n"
+            f"{'━' * 35}\n"
+            f"```\n"
+            f"  {'🔥 ' * 3}  DELE EXAM  {'🔥 ' * 3}\n\n"
+            f"  📆 Date:      November 14, 2026\n"
+            f"  ⏳ Days left: {days_left} days\n"
+            f"  📅 That's:    {weeks} weeks & {remaining_days} days\n\n"
+            f"  Progress\n"
+            f"  [{bar}] {progress}%\n"
+            f"```\n"
+            f"{focus}\n"
+            f"{'━' * 35}\n"
+            f"_Every day counts. ¡Tú puedes! 💪🇪🇸_"
+        )
+        return
+
     # !streak — show personal streak
     if message.content.strip().lower() == "!streak":
         today = datetime.datetime.now(CAIRO_TZ).strftime("%Y-%m-%d")
