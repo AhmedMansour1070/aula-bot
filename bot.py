@@ -421,6 +421,36 @@ LEARNED GRAMMAR:
 
 
 # ── Study session ────────────────────────────────────────────────────────────
+STUDY_SYSTEM = """You are an expert Spanish language tutor teaching an A1-level student directly from their textbook pages.
+
+You have the full content of the current page(s) below. Your job is to TEACH everything on these pages like a real teacher would — not just summarize.
+
+HOW TO TEACH:
+- **Vocabulary lists**: teach each word with pronunciation hint, meaning, a memory trick if possible, and use it in a sentence. Then quiz the student on them.
+- **Grammar rules**: explain the rule clearly in English with a simple analogy, show the full conjugation table or pattern, give 2-3 examples, then drill the student with exercises.
+- **Exercises on the page**: actually run the exercise with the student. Show them the task, let them answer each item one by one, then correct and explain.
+- **Dialogues**: read through the dialogue, explain new phrases, ask comprehension questions, then have the student practice parts of it.
+- **Images/visual content**: if the text hints at images (labels, descriptions), explain what they likely show and teach the vocabulary around them.
+- **Mixed pages**: break the page into sections and teach each section before moving on.
+
+INTERACTION RULES:
+- Never dump everything at once. Teach in small chunks, then pause and interact.
+- After each chunk: ask a question, run a mini exercise, or ask them to translate something.
+- Wait for the student's response before continuing.
+- When they answer: give detailed feedback — what was right, what was wrong, WHY, and the correct version.
+- Be encouraging but honest. Don't just say "great job" if the answer was wrong.
+- Use formatting: bold for Spanish words, code blocks for conjugation tables, ✅ for correct, ❌ for wrong.
+- Track what you've covered on this page. When everything is taught and practiced, tell them to type !next for the next page.
+- If they type !next before finishing: briefly summarize what's left and ask if they want to skip or continue.
+
+COMMANDS the student can use:
+- !next → move to next page
+- !stop → end session
+- !repeat → re-explain the last concept differently
+- !harder → make exercises harder
+- !easier → simplify the explanation
+"""
+
 async def handle_study_message(message):
     user_id = message.author.id
     session = study_sessions.get(user_id)
@@ -429,7 +459,7 @@ async def handle_study_message(message):
     # End session
     if content.lower() == "!stop":
         study_sessions.pop(user_id, None)
-        await message.channel.send("📕 Study session ended. ¡Buen trabajo!")
+        await message.channel.send("📕 Study session ended. ¡Buen trabajo! 🇪🇸")
         return
 
     # Start new session: !study 45-50
@@ -443,7 +473,7 @@ async def handle_study_message(message):
             await message.channel.send("⚠️ Maximum 20 pages per session. Try a smaller range.")
             return
 
-        await message.channel.send("📖 Loading textbook pages... one moment.")
+        await message.channel.send("📖 Loading textbook... give me a moment.")
         async with message.channel.typing():
             if not ensure_textbook():
                 await message.channel.send("⚠️ Could not load the textbook. Try again later.")
@@ -451,16 +481,40 @@ async def handle_study_message(message):
 
             pages = extract_pages(start, end)
             if not pages:
-                await message.channel.send(f"⚠️ Could not find pages {start}–{end} in the textbook.")
+                await message.channel.send(f"⚠️ Could not find pages {start}–{end} in the textbook. Check the page numbers.")
                 return
 
             sorted_pages = sorted(pages.items())
+            # Build full content string for context
+            full_content = "\n\n".join(
+                f"=== PAGE {pnum} ===\n{text}" for pnum, text in sorted_pages
+            )
             study_sessions[user_id] = {
                 "pages": sorted_pages,
                 "current": 0,
+                "full_content": full_content,
                 "history": []
             }
             session = study_sessions[user_id]
+
+            # Initial teaching prompt
+            page_num, page_text = sorted_pages[0]
+            system = STUDY_SYSTEM + f"\n\nALL PAGES IN THIS SESSION:\n{full_content[:6000]}"
+            opening = (
+                f"The student just started studying pages {start}–{end}. "
+                f"Begin by giving a one-line overview of what these pages cover, "
+                f"then start teaching page {page_num} from the very beginning. "
+                f"Teach the first concept/section only, then interact."
+            )
+            history = [{"role": "user", "content": opening}]
+            reply = call_claude(system, history, max_tokens=800)
+            history.append({"role": "assistant", "content": reply})
+            session["history"] = history
+            session["system"] = system
+
+            for i in range(0, len(reply), 1900):
+                await message.channel.send(reply[i:i+1900])
+        return
 
     # Continue existing session
     if not session:
@@ -471,55 +525,41 @@ async def handle_study_message(message):
 
     if idx >= len(pages):
         study_sessions.pop(user_id, None)
-        await message.channel.send("🎉 You've finished all the pages! ¡Excelente trabajo! Type `!study X-Y` to start a new session.")
+        await message.channel.send("🎉 You've completed all the pages! ¡Excelente trabajo! Type `!study X-Y` to start a new session.")
         return
 
-    page_num, page_text = pages[idx]
+    page_num = pages[idx][0]
     history = session["history"]
+    system = session["system"]
 
-    # If this is the first message or moving to a new page, introduce the page
-    if not history or content.lower() in ("!next", "!study " + content[7:].strip()):
-        system = f"""You are an interactive Spanish tutor walking a student through their A1 textbook page by page.
-
-Current page ({page_num}) content:
----
-{page_text[:3000]}
----
-
-Your job for this page:
-1. Give a SHORT summary of what this page covers (2-3 sentences)
-2. Explain the key concept or vocabulary on this page in simple English
-3. Ask ONE question to check understanding — could be a fill-in-the-blank, translation, or simple question
-4. Tell the student they can answer, type !next to move on, or !stop to end
-
-Keep it conversational and encouraging. This is page {idx + 1} of {len(pages)}."""
-        history = [{"role": "user", "content": f"Let's study page {page_num}."}]
+    # Handle !next
+    if content.lower() == "!next":
+        session["current"] += 1
+        idx = session["current"]
+        if idx >= len(pages):
+            study_sessions.pop(user_id, None)
+            await message.channel.send("🎉 You've completed all the pages! ¡Excelente trabajo!")
+            return
+        page_num, page_text = pages[idx]
+        history.append({"role": "user", "content": f"!next — move to page {page_num}."})
+        prompt_note = f"The student moved to page {page_num}. Start teaching this page from the beginning."
+        history.append({"role": "user", "content": prompt_note})
+    elif content.lower() == "!repeat":
+        history.append({"role": "user", "content": "Please explain that last concept again but differently — use a different example or analogy."})
+    elif content.lower() == "!harder":
+        history.append({"role": "user", "content": "Make the exercises harder from now on."})
+    elif content.lower() == "!easier":
+        history.append({"role": "user", "content": "Simplify your explanations — I'm finding this difficult."})
     else:
-        # Student replied — give feedback and ask follow-up or prompt next page
-        system = f"""You are an interactive Spanish tutor. The student is studying page {page_num} of their A1 textbook.
-
-Page content:
----
-{page_text[:3000]}
----
-
-Rules:
-- Give feedback on their answer (correct/incorrect, explain why)
-- If correct: ask one more question OR tell them they can type !next to move to the next page
-- If incorrect: explain gently and give them another chance
-- Keep responses short and encouraging"""
         history.append({"role": "user", "content": content})
 
     async with message.channel.typing():
-        reply = call_claude(system, history, max_tokens=600)
+        reply = call_claude(system, history[-20:], max_tokens=800)
         history.append({"role": "assistant", "content": reply})
-        session["history"] = history[-10:]  # keep last 10 turns
+        session["history"] = history
 
-        # Auto-advance if student types !next
-        if content.lower() == "!next":
-            session["current"] += 1
-
-        await message.channel.send(reply)
+        for i in range(0, len(reply), 1900):
+            await message.channel.send(reply[i:i+1900])
 
 
 # ── Daily vocab post ─────────────────────────────────────────────────────────
@@ -803,10 +843,11 @@ async def on_message(message):
             )
         return
 
-    # !study — interactive textbook study session
-    if message.content.strip().lower().startswith("!study") or (
-        message.author.id in study_sessions and not message.content.startswith("!")
-    ) or message.content.strip().lower() in ("!next", "!stop"):
+    # !study — interactive textbook study session (must intercept before feature channels)
+    cmd = message.content.strip().lower()
+    if (cmd.startswith("!study") or
+        cmd in ("!next", "!stop", "!repeat", "!harder", "!easier") or
+        message.author.id in study_sessions):
         await handle_study_message(message)
         return
 
