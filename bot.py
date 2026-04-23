@@ -321,36 +321,57 @@ def call_claude(system_prompt, messages, max_tokens=1024):
 
 
 # ── Feature handlers ─────────────────────────────────────────────────────────
+def get_user_profile(message):
+    """Returns (level_name, is_course_member, level_instructions) based on Discord roles."""
+    role_names = [r.name for r in message.author.roles]
+
+    if "Nativo" in role_names:
+        level = "Nativo"
+        instructions = "This person is a native Spanish speaker. Engage them as a peer — discuss topics in natural, fluent Spanish. They can help others and explore advanced nuances."
+    elif "Experto" in role_names:
+        level = "Experto (C1-C2)"
+        instructions = "This is an advanced Spanish learner (C1-C2). Use complex grammar, subjunctive mood, idiomatic expressions, and nuanced vocabulary freely. Challenge them."
+    elif "Viajero" in role_names:
+        level = "Viajero (B1-B2)"
+        instructions = "This is an intermediate learner (B1-B2). Use moderate complexity — past tenses, reflexive verbs, common idioms. Explain mistakes clearly but don't oversimplify."
+    else:
+        level = "Estudiante (A1-A2)"
+        instructions = "This is a beginner (A1-A2). Keep sentences short and simple. Only use basic vocabulary and present tense. Explain everything in English when needed."
+
+    is_course_member = "EsCourse" in role_names
+    return level, is_course_member, instructions
+
+
 async def handle_practice(message, context):
     user_id = message.author.id
     username = message.author.display_name
+    level, is_course_member, level_instructions = get_user_profile(message)
+
     if user_id not in conversation_histories:
         conversation_histories[user_id] = []
-
     conversation_histories[user_id].append({"role": "user", "content": message.content})
     history = conversation_histories[user_id][-20:]
 
-    vocab = build_vocab_context(context)
-    grammar = build_grammar_context(context)
-    last_session = context.get("last_session", "unknown") if context else "unknown"
-
-    system = f"""You are a friendly Spanish conversation partner for an A1-level student named {username}.
-They are currently on {last_session} of their course.
-
-STRICT RULES:
-- Address the student by their name: {username}
-- ONLY use vocabulary and grammar structures the student has learned (listed below)
-- Keep sentences short and simple
-- If the student makes a grammar mistake, gently correct it in your reply
-- Respond mostly in Spanish but explain corrections in English
-- Be encouraging and fun
-- Never use vocabulary not in the list below
-
+    if is_course_member:
+        vocab = build_vocab_context(context)
+        grammar = build_grammar_context(context)
+        last_session = context.get("last_session", "unknown") if context else "unknown"
+        context_block = f"""This student is in Ahmed's Spanish course, currently on {last_session}.
+STRICT: Only use vocabulary and grammar they have studied in class:
 LEARNED VOCABULARY:
 {vocab}
+LEARNED GRAMMAR:
+{grammar}"""
+    else:
+        context_block = "This student is learning Spanish independently. Use general Spanish appropriate for their level."
 
-LEARNED GRAMMAR STRUCTURES:
-{grammar}
+    system = f"""You are a friendly Spanish conversation partner for {username} (level: {level}).
+{level_instructions}
+{context_block}
+- Address the student by their name: {username}
+- Correct mistakes gently in your reply
+- Be encouraging and fun
+- Respond mostly in Spanish but explain corrections in English
 """
     reply = call_claude(system, history)
     conversation_histories[user_id].append({"role": "assistant", "content": reply})
@@ -358,70 +379,83 @@ LEARNED GRAMMAR STRUCTURES:
 
 
 async def handle_homework(message, context):
-    homework = build_homework_context(context)
-    last_session = context.get("last_session", "unknown") if context else "unknown"
     username = message.author.display_name
+    level, is_course_member, level_instructions = get_user_profile(message)
 
-    system = f"""You are a Spanish homework checker for an A1-level student named {username} on {last_session}.
-
+    if is_course_member:
+        homework = build_homework_context(context)
+        last_session = context.get("last_session", "unknown") if context else "unknown"
+        system = f"""You are a Spanish homework checker for {username} (level: {level}) on {last_session}.
+{level_instructions}
 The actual homework assigned was:
 {homework}
-
-Your job:
 - Address the student by their name: {username}
-- If the student pastes their answers, check them against the homework tasks above
-- For wrong answers: explain WHY it's wrong in simple English, give the correct answer
+- Check answers against the homework tasks above
+- For wrong answers: explain WHY, give the correct answer
 - For correct answers: confirm and briefly explain the rule
-- If they ask for help understanding a homework task, explain it clearly
 - Be encouraging and specific to their actual assignments
+"""
+    else:
+        system = f"""You are a Spanish homework helper for {username} (level: {level}).
+{level_instructions}
+- Address the student by their name: {username}
+- Help them with any Spanish homework or exercises they share
+- Explain mistakes clearly at their level
+- Be encouraging
 """
     messages = [{"role": "user", "content": message.content}]
     return call_claude(system, messages)
 
 
 async def handle_exercises(message, context):
-    vocab = build_vocab_context(context)
-    grammar = build_grammar_context(context)
     username = message.author.display_name
+    level, is_course_member, level_instructions = get_user_profile(message)
 
-    system = f"""You are a Spanish exercise generator for an A1-level student named {username}.
-Generate exactly 10 exercises using ONLY the vocabulary and grammar below.
-Mix these types: fill-in-the-blank, translate to Spanish, translate to English, conjugate the verb.
-Format each exercise clearly numbered 1-10.
-Put answers at the bottom under a "─── ANSWERS ───" separator using spoiler tags: ||answer||
-Adjust difficulty and focus based on the student's request.
+    if is_course_member:
+        vocab = build_vocab_context(context)
+        grammar = build_grammar_context(context)
+        context_block = f"""Use ONLY vocabulary and grammar from their class:
+VOCABULARY: {vocab}
+GRAMMAR: {grammar}"""
+    else:
+        context_block = f"Generate exercises appropriate for {level} level using general Spanish vocabulary and grammar."
 
-VOCABULARY TO USE:
-{vocab}
-
-GRAMMAR STRUCTURES TO USE:
-{grammar}
+    system = f"""You are a Spanish exercise generator for {username} (level: {level}).
+{level_instructions}
+{context_block}
+Generate exactly 10 exercises. Mix: fill-in-the-blank, translate to Spanish, translate to English, conjugate the verb.
+Format numbered 1-10. Put answers under "─── ANSWERS ───" using spoiler tags: ||answer||
+Adjust difficulty based on the student's request.
 """
-    prompt = f"Student request: {message.content.strip()}\n\nGenerate 10 exercises based on the above."
+    prompt = f"Student request: {message.content.strip()}\n\nGenerate 10 exercises."
     messages = [{"role": "user", "content": prompt}]
     return call_claude(system, messages, max_tokens=2000)
 
 
 async def handle_speaking(message, context):
-    vocab = build_vocab_context(context)
-    grammar = build_grammar_context(context)
     username = message.author.display_name
+    level, is_course_member, level_instructions = get_user_profile(message)
 
-    system = f"""You are a Spanish speaking coach for an A1-level student named {username}.
+    if is_course_member:
+        vocab = build_vocab_context(context)
+        grammar = build_grammar_context(context)
+        context_block = f"""Only flag mistakes related to grammar and vocabulary they've already studied:
+LEARNED VOCABULARY: {vocab}
+LEARNED GRAMMAR: {grammar}"""
+    else:
+        context_block = f"Grade based on what is appropriate for a {level} level Spanish learner."
+
+    system = f"""You are a Spanish speaking coach for {username} (level: {level}).
+{level_instructions}
 The student will write a Spanish sentence or paragraph.
 
 Your job:
 1. Grade it: ✅ Correct / ⚠️ Minor errors / ❌ Major errors
 2. Show the corrected version in bold
-3. Explain each mistake in simple English, referencing the grammar rules they've learned
+3. Explain each mistake in simple English
 4. Give one actionable tip to improve
 
-Only flag mistakes related to grammar and vocabulary they've already studied:
-LEARNED VOCABULARY:
-{vocab}
-
-LEARNED GRAMMAR:
-{grammar}
+{context_block}
 """
     messages = [{"role": "user", "content": f"Please check my Spanish:\n{message.content}"}]
     return call_claude(system, messages)
