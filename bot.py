@@ -43,7 +43,8 @@ APPS_SCRIPT_KEY = "aulabot2026"
 DAILY_LIMIT      = 25
 USAGE_FILE       = "usage.json"
 STREAKS_FILE     = "streaks.json"
-ADMIN_IDS        = set(int(x) for x in (os.environ.get("ADMIN_IDS") or "").split(",") if x.strip().isdigit())
+_raw_admins      = os.environ.get("BOT_ADMINS", "")
+ADMIN_IDS        = set(int(x) for x in _raw_admins.split(",") if x.strip().isdigit())
 STREAKS_CHANNEL  = "streaks"
 
 TEXTBOOK_LFS_URL = "https://media.githubusercontent.com/media/AhmedMansour1070/aula-bot/main/Aula%20Internacional%20Plus%201%20(A1).pdf"
