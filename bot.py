@@ -5,6 +5,7 @@ import logging
 import csv
 import io
 import json
+import base64
 import urllib.request
 import urllib.error
 import requests
@@ -42,10 +43,14 @@ APPS_SCRIPT_KEY = "aulabot2026"
 
 DAILY_LIMIT      = 25
 USAGE_FILE       = "usage.json"
-STREAKS_FILE     = "streaks.json"
 _raw_admins      = os.environ.get("BOT_ADMINS", "")
 ADMIN_IDS        = set(int(x) for x in _raw_admins.split(",") if x.strip().isdigit())
 STREAKS_CHANNEL  = "streaks"
+
+GITHUB_TOKEN     = os.environ["GITHUB_TOKEN"]
+GITHUB_REPO      = "AhmedMansour1070/aula-bot"
+STREAKS_FILE     = "streaks.json"
+STREAKS_GH_URL   = f"https://raw.githubusercontent.com/{GITHUB_REPO}/main/{STREAKS_FILE}"
 
 TEXTBOOK_LFS_URL = "https://media.githubusercontent.com/media/AhmedMansour1070/aula-bot/main/Aula%20Internacional%20Plus%201%20(A1).pdf"
 TEXTBOOK_PATH    = "textbook.pdf"
@@ -107,15 +112,28 @@ def save_usage(data):
 
 def load_streaks():
     try:
-        with open(STREAKS_FILE, "r") as f:
-            return json.load(f)
+        resp = requests.get(STREAKS_GH_URL, timeout=10)
+        if resp.status_code == 200:
+            return resp.json()
     except Exception:
-        return {}
+        pass
+    return {}
 
 
 def save_streaks(data):
-    with open(STREAKS_FILE, "w") as f:
-        json.dump(data, f)
+    try:
+        content = base64.b64encode(json.dumps(data, ensure_ascii=False, indent=2).encode()).decode()
+        api_url = f"https://api.github.com/repos/{GITHUB_REPO}/contents/{STREAKS_FILE}"
+        headers = {"Authorization": f"token {GITHUB_TOKEN}", "Content-Type": "application/json"}
+        # Get current SHA
+        r = requests.get(api_url, headers=headers, timeout=10)
+        sha = r.json().get("sha") if r.status_code == 200 else None
+        payload = {"message": "Update streaks", "content": content}
+        if sha:
+            payload["sha"] = sha
+        requests.put(api_url, json=payload, headers=headers, timeout=15)
+    except Exception as e:
+        log.error("Failed to save streaks to GitHub: %s", e)
 
 
 def record_practice(user_id: int, name: str):
