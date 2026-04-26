@@ -653,6 +653,247 @@
         "En el fin de semana no tengo trabajo"
       ],
       "next_session_prep": []
+    },
+    {
+      "session": "CLASE.6",
+      "date": "2026-04-27",
+      "topics": [
+        "Ejercicio 1: Completa las frases con la forma correcta del verbo en presente",
+        "Conjugación del verbo en presente del indicativo",
+        "Intercambio de idiomas",
+        "Conjugación del verbo ser"
+      ],
+      "vocabulary": [
+        {
+          "word": "estudiar",
+          "translation": "to study",
+          "example": "Yo estudio español todos los días.",
+          "type": "verb"
+        },
+        {
+          "word": "trabajar",
+          "translation": "to work",
+          "example": "Tú trabajas en una oficina.",
+          "type": "verb"
+        },
+        {
+          "word": "vivir",
+          "translation": "to live",
+          "example": "Él vive en Madrid.",
+          "type": "verb"
+        },
+        {
+          "word": "comer",
+          "translation": "to eat",
+          "example": "Nosotros comemos pizza los viernes.",
+          "type": "verb"
+        },
+        {
+          "word": "beber",
+          "translation": "to drink",
+          "example": "Vosotros bebéis agua todos los días.",
+          "type": "verb"
+        },
+        {
+          "word": "escribir",
+          "translation": "to write",
+          "example": "Ellos escriben correos electrónicos.",
+          "type": "verb"
+        },
+        {
+          "word": "escuchar",
+          "translation": "to listen",
+          "example": "Aya: escucho podcásta en español y veo películas cortas españolas",
+          "type": "verb"
+        },
+        {
+          "word": "leer",
+          "translation": "to read",
+          "example": "Menna: leo frases en español, estudio gramática y veo series españolas.",
+          "type": "verb"
+        },
+        {
+          "word": "tomar",
+          "translation": "to take",
+          "example": "Nour: escucho música española, tomo un curso de español.",
+          "type": "verb"
+        },
+        {
+          "word": "hacer",
+          "translation": "to do",
+          "example": "Adamm: hago un curso de español, aprendo la gramática española.",
+          "type": "verb"
+        },
+        {
+          "word": "aprender",
+          "translation": "to learn",
+          "example": "Basmalla: hago un curso de español. Aprendo la gramática española, hago ejercicios de gramática",
+          "type": "verb"
+        },
+        {
+          "word": "practicar",
+          "translation": "to practice",
+          "example": "Por la tarde practico con mis amigos extranjeros",
+          "type": "verb"
+        },
+        {
+          "word": "hablar",
+          "translation": "to speak",
+          "example": "nosotros hablamos por videollamada y hacemos ejercicios juntos.",
+          "type": "verb"
+        },
+        {
+          "word": "viajar",
+          "translation": "to travel",
+          "example": "Estudio el español para viajar a España.",
+          "type": "verb"
+        },
+        {
+          "word": "trabajar",
+          "translation": "to work",
+          "example": "Estudio el español para trabajar en una empresa española.",
+          "type": "verb"
+        },
+        {
+          "word": "vivir",
+          "translation": "to live",
+          "example": "Estudio el español para vivir fuera de Egipto.",
+          "type": "verb"
+        },
+        {
+          "word": "querer",
+          "translation": "to want",
+          "example": "Yo quiero viajar a España.",
+          "type": "verb"
+        },
+        {
+          "word": "preparar",
+          "translation": "to prepare",
+          "example": "Estudio el español porque preparo el máster actualmente en España.",
+          "type": "verb"
+        },
+        {
+          "word": "profesor",
+          "translation": "teacher",
+          "example": "Soy profesor de español.",
+          "type": "noun"
+        },
+        {
+          "word": "ingeniero",
+          "translation": "engineer",
+          "example": "Diego es ingeniero informático.",
+          "type": "noun"
+        },
+        {
+          "word": "afición",
+          "translation": "hobby",
+          "example": "Mis aficiones son leer novelas, viajar y practicar yoga.",
+          "type": "noun"
+        },
+        {
+          "word": "correos electrónicos",
+          "translation": "emails",
+          "example": "Ellos escriben correos electrónicos.",
+          "type": "noun"
+        },
+        {
+          "word": "videollamada",
+          "translation": "video call",
+          "example": "Nosotros hablamos por videollamada y hacemos ejercicios juntos.",
+          "type": "noun"
+        },
+        {
+          "word": "intención",
+          "translation": "intention",
+          "example": "Mi intención es mejorar mi nivel de español.",
+          "type": "noun"
+        },
+        {
+          "word": "intercambio",
+          "translation": "exchange",
+          "example": "Quiero hacer un intercambio de idiomas con Diego o Laura.",
+          "type": "noun"
+        }
+      ],
+      "grammar": [
+        {
+          "rule": "verb conjugation in present tense",
+          "forms": [
+            "yo estudio",
+            "tú trabajas",
+            "él/ella vive",
+            "nosotros comemos",
+            "vosotros bebéis",
+            "ellos escriben"
+          ]
+        },
+        {
+          "rule": "verb conjugation in present tense of regular -ar verbs",
+          "forms": [
+            "yo hablo",
+            "tú hablas",
+            "él/ella habla",
+            "nosotros hablamos",
+            "vosotros habláis",
+            "ellos hablan"
+          ]
+        },
+        {
+          "rule": "verb conjugation in present tense of regular -er verbs",
+          "forms": [
+            "yo como",
+            "tú comes",
+            "él/ella come",
+            "nosotros comemos",
+            "vosotros coméis",
+            "ellos comen"
+          ]
+        },
+        {
+          "rule": "verb conjugation in present tense of regular -ir verbs",
+          "forms": [
+            "yo vivo",
+            "tú vives",
+            "él/ella vive",
+            "nosotros vivimos",
+            "vosotros vivís",
+            "ellos viven"
+          ]
+        },
+        {
+          "rule": "conjugation of the verb ser",
+          "forms": [
+            "yo soy",
+            "tú eres",
+            "él/ella es",
+            "nosotros somos",
+            "vosotros sois",
+            "ellos son"
+          ]
+        }
+      ],
+      "homework": [
+        "Ejercicio 1: Completa las frases con la forma correcta del verbo en presente",
+        "Ejercicio: completa los huecos con la forma correcta del verbo en presente del indicativo",
+        "Lee y responde: NOMBRE: Laura, APELLIDOS: Fernández Rivas, etc.",
+        "Imagina que tienes la oportunidad de hacer intercambio para aprender idiomas ¿con quién quieres hacer el intercambio, Diego o Laura?. Escribe un correo para Diego o Laura."
+      ],
+      "homework_pages": {},
+      "useful_phrases": [
+        "¿cómo te llamas?",
+        "Me llamo...",
+        "¿de dónde eres?",
+        "Soy de...",
+        "¿qué estudias?",
+        "Estudio...",
+        "¿por qué estudias español?",
+        "Estudio español porque..."
+      ],
+      "next_session_prep": [
+        "Review verb conjugations in present tense",
+        "Practice vocabulary related to hobbies and interests",
+        "Prepare for the next session by reviewing the grammar rules and vocabulary"
+      ]
     }
   ],
   "all_vocab": [
@@ -1152,6 +1393,167 @@
       "example": "En el fin de semana",
       "type": "noun",
       "session": "CLASE.5"
+    },
+    {
+      "word": "estudiar",
+      "translation": "to study",
+      "example": "Yo estudio español todos los días.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "trabajar",
+      "translation": "to work",
+      "example": "Tú trabajas en una oficina.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "vivir",
+      "translation": "to live",
+      "example": "Él vive en Madrid.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "comer",
+      "translation": "to eat",
+      "example": "Nosotros comemos pizza los viernes.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "beber",
+      "translation": "to drink",
+      "example": "Vosotros bebéis agua todos los días.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "escribir",
+      "translation": "to write",
+      "example": "Ellos escriben correos electrónicos.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "escuchar",
+      "translation": "to listen",
+      "example": "Aya: escucho podcásta en español y veo películas cortas españolas",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "leer",
+      "translation": "to read",
+      "example": "Menna: leo frases en español, estudio gramática y veo series españolas.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "tomar",
+      "translation": "to take",
+      "example": "Nour: escucho música española, tomo un curso de español.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "hacer",
+      "translation": "to do",
+      "example": "Adamm: hago un curso de español, aprendo la gramática española.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "aprender",
+      "translation": "to learn",
+      "example": "Basmalla: hago un curso de español. Aprendo la gramática española, hago ejercicios de gramática",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "practicar",
+      "translation": "to practice",
+      "example": "Por la tarde practico con mis amigos extranjeros",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "hablar",
+      "translation": "to speak",
+      "example": "nosotros hablamos por videollamada y hacemos ejercicios juntos.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "viajar",
+      "translation": "to travel",
+      "example": "Estudio el español para viajar a España.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "querer",
+      "translation": "to want",
+      "example": "Yo quiero viajar a España.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "preparar",
+      "translation": "to prepare",
+      "example": "Estudio el español porque preparo el máster actualmente en España.",
+      "type": "verb",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "profesor",
+      "translation": "teacher",
+      "example": "Soy profesor de español.",
+      "type": "noun",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "ingeniero",
+      "translation": "engineer",
+      "example": "Diego es ingeniero informático.",
+      "type": "noun",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "afición",
+      "translation": "hobby",
+      "example": "Mis aficiones son leer novelas, viajar y practicar yoga.",
+      "type": "noun",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "correos electrónicos",
+      "translation": "emails",
+      "example": "Ellos escriben correos electrónicos.",
+      "type": "noun",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "videollamada",
+      "translation": "video call",
+      "example": "Nosotros hablamos por videollamada y hacemos ejercicios juntos.",
+      "type": "noun",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "intención",
+      "translation": "intention",
+      "example": "Mi intención es mejorar mi nivel de español.",
+      "type": "noun",
+      "session": "CLASE.6"
+    },
+    {
+      "word": "intercambio",
+      "translation": "exchange",
+      "example": "Quiero hacer un intercambio de idiomas con Diego o Laura.",
+      "type": "noun",
+      "session": "CLASE.6"
     }
   ],
   "all_grammar": [
@@ -1226,6 +1628,66 @@
         "Él/ella/usted quiere"
       ],
       "session": "CLASE.5"
+    },
+    {
+      "rule": "verb conjugation in present tense",
+      "forms": [
+        "yo estudio",
+        "tú trabajas",
+        "él/ella vive",
+        "nosotros comemos",
+        "vosotros bebéis",
+        "ellos escriben"
+      ],
+      "session": "CLASE.6"
+    },
+    {
+      "rule": "verb conjugation in present tense of regular -ar verbs",
+      "forms": [
+        "yo hablo",
+        "tú hablas",
+        "él/ella habla",
+        "nosotros hablamos",
+        "vosotros habláis",
+        "ellos hablan"
+      ],
+      "session": "CLASE.6"
+    },
+    {
+      "rule": "verb conjugation in present tense of regular -er verbs",
+      "forms": [
+        "yo como",
+        "tú comes",
+        "él/ella come",
+        "nosotros comemos",
+        "vosotros coméis",
+        "ellos comen"
+      ],
+      "session": "CLASE.6"
+    },
+    {
+      "rule": "verb conjugation in present tense of regular -ir verbs",
+      "forms": [
+        "yo vivo",
+        "tú vives",
+        "él/ella vive",
+        "nosotros vivimos",
+        "vosotros vivís",
+        "ellos viven"
+      ],
+      "session": "CLASE.6"
+    },
+    {
+      "rule": "conjugation of the verb ser",
+      "forms": [
+        "yo soy",
+        "tú eres",
+        "él/ella es",
+        "nosotros somos",
+        "vosotros sois",
+        "ellos son"
+      ],
+      "session": "CLASE.6"
     }
   ],
   "all_homework": [
@@ -1284,8 +1746,24 @@
     {
       "task": "Más ejercicios página 148: actividad 1/2/4/5/6",
       "session": "CLASE.5"
+    },
+    {
+      "task": "Ejercicio 1: Completa las frases con la forma correcta del verbo en presente",
+      "session": "CLASE.6"
+    },
+    {
+      "task": "Ejercicio: completa los huecos con la forma correcta del verbo en presente del indicativo",
+      "session": "CLASE.6"
+    },
+    {
+      "task": "Lee y responde: NOMBRE: Laura, APELLIDOS: Fernández Rivas, etc.",
+      "session": "CLASE.6"
+    },
+    {
+      "task": "Imagina que tienes la oportunidad de hacer intercambio para aprender idiomas ¿con quién quieres hacer el intercambio, Diego o Laura?. Escribe un correo para Diego o Laura.",
+      "session": "CLASE.6"
     }
   ],
-  "last_session": "CLASE.5",
-  "last_updated": "2026-04-23 00:20"
+  "last_session": "CLASE.6",
+  "last_updated": "2026-04-27 00:05"
 }
